@@ -11,9 +11,9 @@
    <fieldset>
      <legend>Pour vous inscrire, veuillez indiquer les informations suivantes:</legend>
      <ul>
-      <li><label>Nom</label><input type="text" name="nom"></li> 
-      <li><label>Prénom</label><input type="text" name="prenom"></li> 
-      <li><label>Adresse de Facturation</label><textarea></textarea></li>
+      <li><label for="nom">Nom</label><input type="text" name="nom" id="nom"></li> 
+      <li><label for="prenom">Prénom</label><input type="text" name="prenom" id="prenom"></li> 
+      <li><label for="adresse">Adresse de Facturation</label><textarea id="adresse"></textarea></li>
 
       <li>
         <label>Date d'arrivée</label>
@@ -27,16 +27,16 @@
         <option>       18 / 10 / 2015 </option>
       </select>
     </li>
-    <li><label>  Votre statut</label>
-     <input type="radio" name="status" value="Conferencier"> Conférencier
-     <input type="radio" name="status" value="Chercheur"> Chercheur
-     <input type="radio" name="status" value="Industriel"> Industriel
+    <li>  Votre statut
+     <input type="radio" name="status" value="Conferencier" id="conferencier"> <label for="conferencier">Conférencier</label>
+     <input type="radio" name="status" value="Chercheur" id="chercheur"> <label for="chercheur">Chercheur</label>
+     <input type="radio" name="status" value="Industriel" id="industriel"> <label for="industriel">Industriel</label>
    </li>
-   <li> <label> Réservation souhaitée</label>
-    <input type="checkbox" name="repas" value="dej-17"> Déjeuner du 17/10/2015
-    <input type="checkbox" name="repas" value="dej-18">Déjeuner du 18/10/2015
-    <input type="checkbox" name="repas" value="diner-17">Diner du 17/10/2015
-    <input type="checkbox" name="repas" value="diner-18">Diner du 18/10/2015
+   <li>  Réservation souhaitée
+    <input type="checkbox" name="repas" value="dej-17" id="dej-17"> <label for="dej-17">Déjeuner du 17/10/2015</label>
+    <input type="checkbox" name="repas" value="dej-18" id="dej-18"> <label for="dej-18">Déjeuner du 18/10/2015</label>
+    <input type="checkbox" name="repas" value="diner-17" id="diner-17"> <label for="diner-17">Diner du 17/10/2015</label>
+    <input type="checkbox" name="repas" value="diner-18" id="diner-18"> <label for="diner-18">Diner du 18/10/2015</label>
   </li>
 
 </ul>
