@@ -36,6 +36,8 @@
 
 	</div>
 	<div>
+		<h2>Tableaux</h2>
+		<h3>Exemple</h3>
 		<table border="1">
 			<thead>
 				<tr><th></th><th>libellé 1</th><th>libellé 2</th><th>libellé 3</th></tr>
@@ -54,25 +56,107 @@
 			</tbody>
 		</table>
 
+		<h3>Code</h3>
 		<pre>
-	&lt;table border="1"&gt;
-		&lt;thead&gt;
-			&lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;libellé 1&lt;/th&gt;&lt;th&gt;libellé 2&lt;/th&gt;&lt;th&gt;libellé 3&lt;/th&gt;&lt;/tr&gt;
-		&lt;/thead&gt;
-		&lt;tbody&gt;
-			&lt;tr&gt;
-				&lt;th&gt;libellé A&lt;/th&gt;&lt;td&gt;contenu 1&lt;/td&gt;&lt;td&gt;contenu 3&lt;/td&gt;&lt;td&gt;contenu 6&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-				&lt;th&gt;libellé B&lt;/th&gt;&lt;td rowspan="2"&gt;contenu 2&lt;/td&gt;
-				&lt;td&gt;contenu 4&lt;/td&gt;&lt;td&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-				&lt;th&gt;libellé C&lt;/th&gt;&lt;td colspan="2"&gt;contenu 5&lt;/td&gt;
-			&lt;/tr&gt;
-		&lt;/tbody&gt;
-	&lt;/table&gt;
+&lt;table border="1"&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;libellé 1&lt;/th&gt;&lt;th&gt;libellé 2&lt;/th&gt;&lt;th&gt;libellé 3&lt;/th&gt;&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;th&gt;libellé A&lt;/th&gt;&lt;td&gt;contenu 1&lt;/td&gt;&lt;td&gt;contenu 3&lt;/td&gt;&lt;td&gt;contenu 6&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;libellé B&lt;/th&gt;&lt;td rowspan="2"&gt;contenu 2&lt;/td&gt;
+			&lt;td&gt;contenu 4&lt;/td&gt;&lt;td&gt;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;libellé C&lt;/th&gt;&lt;td colspan="2"&gt;contenu 5&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
 		</pre>
 	</div>
+	<div>
+		<h2>Formulaire</h2>
+		<h3>Exemple</h3>
+		<form>
+			<fieldset>
+				<legend>Pour vous inscrire, veuillez indiquer les informations suivantes:</legend>
+				<ul>
+					<li><label for="nom">Nom</label><input type="text" name="nom" id="nom"></li> 
+					<li><label for="prenom">Prénom</label><input type="text" name="prenom" id="prenom"></li> 
+					<li><label for="adresse">Adresse de Facturation</label><textarea id="adresse"></textarea></li>
+
+					<li>
+						<label>Date d'arrivée</label>
+						<select>
+							<option>17 / 10 / 2015</option> 
+							<option>18 / 10 / 2015</option>
+						</select>     
+						<label>Date de départ</label>
+						<select>
+							<option>     17 / 10 / 2015 </option>
+							<option>       18 / 10 / 2015 </option>
+						</select>
+					</li>
+					<li>  Votre statut
+						<input type="radio" name="status" value="Conferencier" id="conferencier"> <label for="conferencier">Conférencier</label>
+						<input type="radio" name="status" value="Chercheur" id="chercheur"> <label for="chercheur">Chercheur</label>
+						<input type="radio" name="status" value="Industriel" id="industriel"> <label for="industriel">Industriel</label>
+					</li>
+					<li>  Réservation souhaitée
+						<input type="checkbox" name="repas" value="dej-17" id="dej-17"> <label for="dej-17">Déjeuner du 17/10/2015</label>
+						<input type="checkbox" name="repas" value="dej-18" id="dej-18"> <label for="dej-18">Déjeuner du 18/10/2015</label>
+						<input type="checkbox" name="repas" value="diner-17" id="diner-17"> <label for="diner-17">Diner du 17/10/2015</label>
+						<input type="checkbox" name="repas" value="diner-18" id="diner-18"> <label for="diner-18">Diner du 18/10/2015</label>
+					</li>
+
+				</ul>
+				<input type="submit" value="S'inscrire">
+			</fieldset>
+		</form>
+
+		<h3>Code</h3>
+		<pre>
+&lt;form&gt;
+	&lt;fieldset&gt;
+		&lt;legend&gt;Pour vous inscrire, veuillez indiquer les informations suivantes:&lt;/legend&gt;
+		&lt;ul&gt;
+			&lt;li&gt;&lt;label for="nom"&gt;Nom&lt;/label&gt;&lt;input type="text" name="nom" id="nom"&gt;&lt;/li&gt; 
+			&lt;li&gt;&lt;label for="prenom"&gt;Prénom&lt;/label&gt;&lt;input type="text" name="prenom" id="prenom"&gt;&lt;/li&gt; 
+			&lt;li&gt;&lt;label for="adresse"&gt;Adresse de Facturation&lt;/label&gt;&lt;textarea id="adresse"&gt;&lt;/textarea&gt;&lt;/li&gt;
+
+			&lt;li&gt;
+				&lt;label&gt;Date d'arrivée&lt;/label&gt;
+				&lt;select&gt;
+					&lt;option&gt;17 / 10 / 2015&lt;/option&gt; 
+					&lt;option&gt;18 / 10 / 2015&lt;/option&gt;
+				&lt;/select&gt;     
+				&lt;label&gt;Date de départ&lt;/label&gt;
+				&lt;select&gt;
+					&lt;option&gt;     17 / 10 / 2015 &lt;/option&gt;
+					&lt;option&gt;       18 / 10 / 2015 &lt;/option&gt;
+				&lt;/select&gt;
+			&lt;/li&gt;
+			&lt;li&gt;  Votre statut
+				&lt;input type="radio" name="status" value="Conferencier" id="conferencier"&gt; &lt;label for="conferencier"&gt;Conférencier&lt;/label&gt;
+				&lt;input type="radio" name="status" value="Chercheur" id="chercheur"&gt; &lt;label for="chercheur"&gt;Chercheur&lt;/label&gt;
+				&lt;input type="radio" name="status" value="Industriel" id="industriel"&gt; &lt;label for="industriel"&gt;Industriel&lt;/label&gt;
+			&lt;/li&gt;
+			&lt;li&gt;  Réservation souhaitée
+				&lt;input type="checkbox" name="repas" value="dej-17" id="dej-17"&gt; &lt;label for="dej-17"&gt;Déjeuner du 17/10/2015&lt;/label&gt;
+				&lt;input type="checkbox" name="repas" value="dej-18" id="dej-18"&gt; &lt;label for="dej-18"&gt;Déjeuner du 18/10/2015&lt;/label&gt;
+				&lt;input type="checkbox" name="repas" value="diner-17" id="diner-17"&gt; &lt;label for="diner-17"&gt;Diner du 17/10/2015&lt;/label&gt;
+				&lt;input type="checkbox" name="repas" value="diner-18" id="diner-18"&gt; &lt;label for="diner-18"&gt;Diner du 18/10/2015&lt;/label&gt;
+			&lt;/li&gt;
+
+		&lt;/ul&gt;
+		&lt;input type="submit" value="S'inscrire"&gt;
+	&lt;/fieldset&gt;
+&lt;/form&gt;
+		</pre>
+	</div>
+
 </body>
 </html>
