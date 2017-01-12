@@ -1,55 +1,95 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Exercice 3</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	</head>
-	<body>
-	  <!-- Structurer le document html suivant -->
-		Institut polytechnique de Grenoble
-		
-		Structure
-		
-				Ecoles d'ingénieur recrutant au niveau bac+2
-					Phelma
-					Pagora
-					Ensimag
-					Génie Industriel
-					Ense3
-				Ecoles d'ingénieur recrutant au niveau bac
-					Esisar
-				Prépa
-					antenne de Grenoble
-					antenne de Valence
-		
-		Classements dans la presse des écoles à recrutement niveau bac+2
-		
-					2010 2011 2012 2013
-					Industrie et technologie 1ère 1ère 3ème à paraître
-					L'Usine Nouvelle 20ème 2ème 7ème
-					L'Etudiant
-							Ensimag : 12ème
-							Phelma : 19ème
-							Ense3 : 23ème
-							Génie industriel : 29ème
-							Pagora : 45ème
+<head>
+	<title>Exercice 3</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+	<!-- Structurer le document html suivant -->
+	<img src="http://www.grenoble-inp.fr/images/inpg/logo.gif" alt="grenoble-inp">
+	<h1>Institut polytechnique de Grenoble</h1>
 
-							Ensimag : 14ème
-							Phelma : 17ème
-							Ense3 : 19ème
-							Génie industriel : 28ème
-							Pagora : 55ème
+	<h2>Structure</h2>
+	<ul>		
+		<li>
+			Ecoles d'ingénieur recrutant au niveau bac+2
+			<ul>
+				<li><a href="http://phelma.grenoble-inp.fr/">Phelma</a></li>
+				<li><a href="http://pagora.grenoble-inp.fr/">Pagora</a></li>
+				<li><a href="http://ensimag.grenoble-inp.fr/">Ensimag</a></li>
+				<li><a href="http://genie-industriel.grenoble-inp.fr/">Génie Industriel</a></li>
+				<li><a href="http://ense3.grenoble-inp.fr/">Ense3</a></li>
+			</ul>
+		</li>
+		<li>
+			Ecoles d'ingénieur recrutant au niveau bac
+			<ul>
+				<li><a href="http://esisar.grenoble-inp.fr/">Esisar</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="http://cpp-prepa.grenoble-inp.fr/">Prépa</a>
+			<ul>
+				<li>antenne de Grenoble</li>
+				<li>antenne de Valence</li>
+			</ul>
+		</li>
+	</ul>
 
-							Ensimag : 19ème
-							Phelma : 21ème
-							Ense3 : 21ème
-							Génie industriel : 30ème
-							Pagora : 73ème
-
-							Ensimag : 17ème
-							Phelma : 17ème
-							Ense3 : 26ème
-							Génie industriel : 54ème
-							Pagora : 61ème
-	</body>
+	<h2>Classements dans la presse des écoles à recrutement niveau bac+2</h2>
+	<table border="1">
+		<thead>
+			<tr>
+				<th></th><th>2010</th> <th>2011</th> <th>2012</th> <th>2013</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th>Industrie et technologie</th> <td>1ère</td> <td>1ère</td><td> 3ème</td> <td rowspan="2">à paraître</td>
+			</tr>
+			<tr>
+				<th>L'Usine Nouvelle</th> <td>20ème</td> <td>2ème</td> <td>7ème</td>
+			</tr>
+			<tr>
+				<th>L'Etudiant</th>
+				<td>
+					<ol>
+						<li>Ensimag : 12ème</li>
+						<li>Phelma : 19ème</li>
+						<li>Ense3 : 23ème</li>
+						<li>Génie industriel : 29ème</li>
+						<li>Pagora : 45ème</li>
+					</ol>
+				</td>
+				<td>
+					<ol>
+						<li>Ensimag : 14ème</li>
+						<li>Phelma : 17ème</li>
+						<li>Ense3 : 19ème</li>
+						<li>Génie industriel : 28ème</li>
+						<li>Pagora : 55ème</li>
+					</ol>
+				</td>
+				<td>
+					<ol>
+						<li>Ensimag : 19ème</li>
+						<li>Phelma : 21ème</li>
+						<li>Ense3 : 21ème</li>
+						<li>Génie industriel : 30ème</li>
+						<li>Pagora : 73ème</li>
+					</ol>
+				</td>
+				<td>
+					<ol>
+						<li>Ensimag : 17ème</li>
+						<li>Phelma : 17ème</li>
+						<li>Ense3 : 26ème</li>
+						<li>Génie industriel : 54ème</li>
+						<li>Pagora : 61ème</li>
+					</ol>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
 </html>
