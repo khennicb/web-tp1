@@ -1,0 +1,87 @@
+/* Votre feuille de style */
+/* PROF DEBUT*/
+/* Question 1 : Rendre visible les frontières des différents objets */
+/* Avec une bordure noire de 1 pixel */
+nav > *,header > div,aside,div.contenu,main,header,footer,section {
+ border : 1px solid black;
+}
+/* Q2: Pour éviter des marges par défaut non prévues, elles sont mises à 0 */ 
+body {
+  margin: 0;
+  padding: 0; 
+}
+/* Question 2 : Le bandeau d'entête occupe l'intégralité de la page en largeur (100%) */
+/* Et 120 px de haut */
+header {
+       height: 122px;
+}
+/* Question 2 :  Le Logo occupe un carré de 120px de coté 
+/* et est positionné en haut à gauche et sort du flot pour permettre au suivant d'être positionné sur la même ligne*/
+#logo {
+       float: left; 
+}
+#logo img {
+      vertical-align: bottom;
+}
+/* Question 2 : seule solution pour occuper l'intégralité de la zone (float et inline-block réduit la largeur au minimum, margin: auto -> margin-coté =0 */
+#pub  {
+
+      margin-left: 140px; /* à 20 px du logo qui occupe 120px*/
+      padding-top: 10px; 
+      padding-bottom: 10px; 
+      text-align: center; /* les éléments fils sont des inline et sont donc disposés par les règles sur les textes */
+}
+/* Question 2 : */
+#pub img {
+	 vertical-align: bottom;
+}
+/*Question 3 : */
+footer {
+       clear: both;
+       text-align: center;
+       padding: 0 25%;
+}
+/*Question 4 */
+/* 1 menu affiché */
+#menu {
+      float:left;
+      width: 10em;
+      margin-left:0;
+}
+#menu > ul {
+	margin: 0;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+main > * {
+     margin-left: 10em;
+}
+#titre {
+       text-align:center;
+       //margin-right: 15em;
+}
+main {
+     position: relative;
+}
+.contenu p {
+	margin: 2ex 0;
+}
+
+/* Pour éviter que le cadre de contenu n'inclue pas les encarts on fait en sorte
+que le dernier élément présent dans le cadre soit après les boites en float */
+.contenu p:last-child{
+	clear:both;
+}
+#recherche {
+	   width: 15em;
+	   position: absolute; 
+	   top:0;
+	   right:0;
+}
+.encart {
+    float: right;
+    clear: right;
+    margin-top: 4ex;
+    width: 10em;
+}
+/* PROF FIN*/
