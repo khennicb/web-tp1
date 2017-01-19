@@ -1,1 +1,70 @@
 /* Votre feuille de style */
+body, header, footer, div, main, nav, section, form, aside{
+	border : 1px solid black;
+}
+
+body{
+	margin: 0px;
+	padding: 0px;
+}
+
+header{
+	height: 120px;
+	width: 100%;
+}
+
+#logo {
+	height: 120px;
+	width: 120px;
+	float: left;
+	margin-right: 20px;
+}
+
+#pub{
+	text-align: center;
+	height: 100px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#pub img{
+	height: 100px;
+	width: 480px;
+}
+
+footer{
+	text-align: center;
+	padding-right: 25%;
+	padding-left: 25%;
+}
+
+#menu {
+	float: left;
+	width: 10em;
+	margin-left: 0px;
+}
+
+main > *{
+	margin-left: 10em;
+}
+
+#titre {
+	text-align: center;
+}
+
+main{
+	position: relative;
+}
+
+#recherche{
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+
+.encart{
+	width: 10em;
+	float: right;
+	margin-top: 4ex;
+    clear: right;
+}
