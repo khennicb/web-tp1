@@ -1,1 +1,13 @@
-/* Votre feuille de style ici */
+
+h1 {
+	font-family: "Jazz LET", fantasy;
+}
+
+body {
+	background-image: url(http://www.panix.com/~clay/cookbook/images/hamburger02.jpg);
+}
+#header #global {
+	background-color: none;
+}
+
+
