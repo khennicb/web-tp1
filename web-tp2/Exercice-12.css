@@ -61,13 +61,15 @@ li > a {
  	color: #930;
 }
 
+
 .section {
+	margin: 15px;
 	border-bottom-style: inset;
 	border-bottom-color: #930;
 }
 
-.section {
-	margin: 15px;
+.section:last-of-type{
+	border-bottom-style: none; 
 }
 
 h2 {
