@@ -68,7 +68,7 @@ li > a {
 	border-bottom-color: #930;
 }
 
-.section:last-of-type{
+.section:nth-last-child(2){
 	border-bottom-style: none; 
 }
 
