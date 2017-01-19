@@ -60,7 +60,12 @@ li > a {
 }
 
 .section {
-	padding: 15px;
+	border-bottom-style: inset;
+	border-bottom-color: #930;
+}
+
+.section {
+	margin: 15px;
 }
 
 h2 {
