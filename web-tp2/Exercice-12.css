@@ -1,103 +1,176 @@
-
-body {
-	border :1px outset gray ;	
-	padding-bottom: 100px;
-	counter-reset: section;
-
-}
-
-body > *, #introduction  {
-	border :1px outset #930 ;
-	margin: 5px;
-	position: relative;
-}
-
-#menu, #introduction {
-	background-color: #fa0;
-}
-
-#introduction {
-	display: inline-block;
-	margin-left: 5%;
-	margin-right: 5%;
-	padding: 1%;
-	width : 30%;
-	text-align: center;
-}
-
-#introduction:after {
-	content: " From Wikipedia, the free encyclopedia";
-	font-size: 16px;
-	display: block;
-}
-
-#introduction + p {
-	display: inline-block;
-	font-style: italic;
-	width : 50%;
-	text-align: right;
-}
-
-ul {
-	margin-top: 2px;
-	margin-bottom: 2px;
-	/*list-style-type: square;*/
-}
-
-li {
-	display: inline-block;
-	margin-right: 10px;
-	list-style-type: square;
+li > a{
 	text-decoration: none;
 }
 
-li > a:before{
-	content: "▪";
+@media screen and (max-width: 1000px) {
+	#menu{
+		margin: 0px;
+		background-color: #02b;
+		color: white;
+		counter-reset: li;
+	}
+
+	#menu:before{
+		content: "☰";
+		font-size: 2em;
+	}
+
+	ul{
+		margin: 0px;
+		padding: 0px;
+		background-color: white;
+		display: none;
+	}
+
+	#menu:hover ul{
+		display: block;
+	}
+
+	li{
+		list-style-type: none;
+		text-align: center;
+		border: 1px solid white;
+		border-radius: 5px;
+		background-color: #777;
+	}
+
+	li > a:before{
+		content: counter(li) "- ";
+		counter-increment: li;
+	}
+
+	li > a{
+		color: #fff;
+	}
+
+	body{
+		counter-reset: h;
+	}
+
+	.introduction>h1:before, .section>h2:before{
+		content: counter(h) "- ";
+		counter-increment: h;
+	} 
+
+	#contents > div > h1, #contents > div > h2 {
+		text-align: center;
+	}
+
+	#contents > div {
+		border-bottom-style: outset;
+	}
+
+	
+	#contents > div:nth-last-child(2){
+		border-bottom-style: none; 
+	}
+
+	#conclusion{
+		text-align: right;
+		background-color: black;
+		color: white;
+	}
 }
 
-li > a {
-	text-decoration: none;
-	font-weight: bold;
- 	color: #930;
-}
+@media screen and (min-width: 1001px){
+	body {
+		border :1px outset gray ;	
+		padding-bottom: 100px;
+		counter-reset: section;
+
+	}
+
+	body > *, #introduction  {
+		border :1px outset #930 ;
+		margin: 5px;
+		position: relative;
+	}
+
+	#introduction {
+		display: inline-block;
+		margin-left: 5%;
+		margin-right: 5%;
+		padding: 1%;
+		width : 30%;
+		text-align: center;
+	}
+
+	#introduction:after {
+		content: " From Wikipedia, the free encyclopedia";
+		font-size: 16px;
+		display: block;
+	}
+
+	#introduction + p {
+		display: inline-block;
+		font-style: italic;
+		width : 50%;
+		text-align: right;
+	}
+
+	.section {
+		margin: 15px;
+		border-bottom-style: inset;
+		border-bottom-color: #930;
+	}
+
+	.section:nth-last-child(2){
+		border-bottom-style: none; 
+	}
+
+	h2 {
+		text-decoration: underline;
+		list-style-type: decimal;
+		margin-left: 15px;
+	}
+
+	h2:before {
+		counter-increment: section;
+	    content: counter(section) ". ";
+	}
+
+	#conclusion {
+		position: absolute;
+		bottom: -35px;
+		right: 10px;
+	}
+	#conclusion > p {
+		background-color: #930;
+		color: white;  
+	}
+
+	#conclusion > p:before {
+		content: "(";
+	}
+
+	#conclusion > p:after {
+		content: ")";
+	}
 
 
-.section {
-	margin: 15px;
-	border-bottom-style: inset;
-	border-bottom-color: #930;
-}
+	#menu, #introduction {
+		background-color: #fa0;
+	}
 
-.section:nth-last-child(2){
-	border-bottom-style: none; 
-}
+	ul {
+		margin-top: 2px;
+		margin-bottom: 2px;
+		/*list-style-type: square;*/
+	}
 
-h2 {
-	text-decoration: underline;
-	list-style-type: decimal;
-	margin-left: 15px;
-}
+	li {
+		display: inline-block;
+		margin-right: 10px;
+		list-style-type: square;
+		text-decoration: none;
+	}
 
-h2:before {
-	counter-increment: section;
-    content: counter(section) ". ";
-}
+	li > a:before{
+		content: "▪";
+	}
 
-#conclusion {
-	position: absolute;
-	bottom: -35px;
-	right: 10px;
+	li > a {
+		font-weight: bold;
+	 	color: #930;
+	}
 }
-#conclusion > p {
-	background-color: #930;
-	color: white;  
-}
-
-#conclusion > p:before {
-	content: "(";
-}
-
-#conclusion > p:after {
-	content: ")";
-}
-
