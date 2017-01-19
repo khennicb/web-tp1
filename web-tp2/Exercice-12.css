@@ -41,7 +41,7 @@ body > *, #introduction  {
 ul {
 	margin-top: 2px;
 	margin-bottom: 2px;
-
+	/*list-style-type: square;*/
 }
 
 li {
@@ -49,6 +49,10 @@ li {
 	margin-right: 10px;
 	list-style-type: square;
 	text-decoration: none;
+}
+
+li > a:before{
+	content: "▪";
 }
 
 li > a {
