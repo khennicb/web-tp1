@@ -18,8 +18,9 @@ html, body {
 
 }
 body {
-   background-color: #9AC4DC; 
-   /* Largeur mini de la page pour l'affichage correct de l'image de relief */
+    /* Image qui donne le relief de la page et fait la largeur du corps */
+    background: url('../Images/fond.png') repeat-y top center #eeeeec;
+    /* Largeur mini de la page pour l'affichage correct de l'image de relief */
     color: #555753; /* Gris foncé */
 }
 
@@ -65,8 +66,11 @@ a:hover {
     margin-right: auto;
     padding: 0px;
     font-family: Verdana, sans-serif;
-    background-color: #DFF9FF;
+    /* Kiosk en filigrane */
+    background: url('../Images/ColonneMorris.png') bottom right no-repeat white;
 }
+
+
 
 /********************************/
 /*      Bandeau de titre        */
@@ -84,7 +88,6 @@ a:hover {
     margin: 0px;
     color: #2e3436; /* Gris foncé */
     text-align:center;
-    font-family: "Jazz LET", fantasy;
 }
 
 #headerlogogauche {
