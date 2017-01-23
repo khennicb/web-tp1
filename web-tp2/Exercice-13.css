@@ -1,11 +1,13 @@
 
-h1 {
+#header h1 {
 	font-family: "Jazz LET", fantasy;
 }
 
 body {
-	background-image: url(http://www.panix.com/~clay/cookbook/images/hamburger02.jpg);
+	background-color: none; 
+	background-image: url(http://www.panix.com/~clay/cookbook/images/hamburger02.jpg) repeat-y top center #eeeeec;
 }
+
 #header #global {
 	background-color: none;
 }
