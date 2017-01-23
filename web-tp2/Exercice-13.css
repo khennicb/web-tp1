@@ -1,4 +1,6 @@
-
+#header {
+	margin : 0px;
+}
 #header h1 {
 	font-family: "Jazz LET", fantasy;
 	color: #b1ff00;
