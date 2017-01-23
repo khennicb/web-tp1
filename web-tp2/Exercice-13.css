@@ -4,8 +4,8 @@
 }
 
 body {
-	background-color: none; 
-	background-image: url(http://www.panix.com/~clay/cookbook/images/hamburger02.jpg) repeat-y top center #eeeeec;
+	background-color: none;
+	background-image: url(http://www.panix.com/~clay/cookbook/images/hamburger02.jpg);
 }
 
 #header #global {
