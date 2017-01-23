@@ -8,9 +8,8 @@ body {
 	background-image: url(http://www.panix.com/~clay/cookbook/images/hamburger02.jpg);
 }
 
-#header #global {
-	background-color: rgba(223, 249, 255, 0.5);
-	opacity: 0.5;
+#global {
+	background-color: rgba(223, 249, 255, 0.7);
 }
 
 #menu > ul >li > a:before {
