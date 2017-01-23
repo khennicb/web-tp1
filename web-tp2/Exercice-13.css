@@ -12,6 +12,11 @@ body {
 	color: #DE00FF;
 }
 
+#headerlogogauche {
+	content:url("http://www.pixelcreation.fr/fileadmin/img/sas_image/galerie/design/observeur_2008/209-Saliere-La-Baleine_Sali.jpg");
+}
+
+
 #global {
 	/*background-color: rgba(223, 249, 255, 0.7);*/
 	background: -webkit-linear-gradient(rgba(255,0,0,0), rgba(223, 249, 255, 0.8),rgba(223, 249, 255,1)); /* For Safari 5.1 to 6.0 */
