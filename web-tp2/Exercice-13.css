@@ -1,11 +1,13 @@
 
 #header h1 {
 	font-family: "Jazz LET", fantasy;
+	color: #b1ff00;
 }
 
 body {
 	background-color: rgba(223, 249, 255, 0.5);
 	background-image: url(http://www.panix.com/~clay/cookbook/images/hamburger02.jpg);
+	color: #DE00FF;
 }
 
 #global {
@@ -21,3 +23,16 @@ body {
  	color: green;
  	
  }
+
+
+#content ul.onglets li{
+	color: red;
+}
+
+#path a {
+    color: #ffb113;
+}
+
+#content ul.onglets li a {
+    color: #0046d4;
+}
