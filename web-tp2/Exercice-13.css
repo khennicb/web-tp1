@@ -4,12 +4,13 @@
 }
 
 body {
-	background-color: none;
+	background-color: rgba(223, 249, 255, 0.5);
 	background-image: url(http://www.panix.com/~clay/cookbook/images/hamburger02.jpg);
 }
 
 #header #global {
-	background-color: none;
+	background-color: rgba(223, 249, 255, 0.5);
+	opacity: 0.5;
 }
 
 #menu > ul >li > a:before {
