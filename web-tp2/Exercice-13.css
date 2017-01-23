@@ -12,4 +12,12 @@ body {
 	background-color: none;
 }
 
-
+#menu > ul >li > a:before {
+	content: "~>";
+	font-size: 1em;
+	
+}
+ .liste_liens > li > a {
+ 	color: green;
+ 	
+ }
