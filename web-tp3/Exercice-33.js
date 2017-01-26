@@ -41,4 +41,11 @@ function switchMenu(){
 function switchTheme(){
 	var element = (document.getElementsByTagName("body"))[0];
 	element.className = document.getElementById("ltheme").value;
+
+  var checkbox_span = document.getElementById("showMenu").parentNode;
+  if(document.getElementById("ltheme").value == "theme1") {
+    checkbox_span.style.display="";
+  } else {
+    checkbox_span.style.display="none";
+  }
 }
