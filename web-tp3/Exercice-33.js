@@ -4,7 +4,7 @@ window.onload=function(){
 
   var checkbox = document.getElementById("showMenu");
   checkbox.addEventListener("click", switchMenu);
-  
+
   initialize();
 }
 
@@ -26,9 +26,9 @@ function switchTheme(){
 
   var checkbox_span = document.getElementById("showMenu").parentNode;
   if(document.getElementById("ltheme").value == "theme1") {
-    checkbox_span.style.display="";
-  } else {
     checkbox_span.style.display="none";
+  } else {
+    checkbox_span.style.display="";
   }
 }
 
