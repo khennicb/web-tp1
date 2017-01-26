@@ -1,15 +1,57 @@
-
+#header {
+	margin : 0px;
+}
 #header h1 {
 	font-family: "Jazz LET", fantasy;
+	color: #b1ff00;
 }
 
 body {
-	background-color: none;
+	background-color: rgba(223, 249, 255, 0.5);
 	background-image: url(http://www.panix.com/~clay/cookbook/images/hamburger02.jpg);
+	color: #DE00FF;
 }
 
-#header #global {
-	background-color: none;
+#headerlogogauche {
+	content:url("http://www.pixelcreation.fr/fileadmin/img/sas_image/galerie/design/observeur_2008/209-Saliere-La-Baleine_Sali.jpg");
 }
 
 
+#global {
+	/*background-color: rgba(223, 249, 255, 0.7);*/
+	background: -webkit-linear-gradient(rgba(255,0,0,0), rgba(223, 249, 255, 0.8),rgba(223, 249, 255,1)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(rgba(255,0,0,0), rgba(223, 249, 255, 0.8),rgba(223, 249, 255,1)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(rgba(255,0,0,0), rgba(223, 249, 255, 0.8),rgba(223, 249, 255,1)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(rgba(255,0,0,0), rgba(223, 249, 255, 0.8), rgba(223, 249, 255,1)); /* Standard syntax (must be last) */
+}
+
+#menu > ul >li > a:before {
+	content: "~>";
+	font-size: 1em;	
+}
+
+#menu > ul >li > a {
+  background: red; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(red, yellow, green); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(red, yellow, green); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(red, yellow, green); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(red, yellow, green); /* Standard syntax */
+}
+
+ .liste_liens > li > a {
+ 	color: green;
+ 	
+ }
+
+
+#content ul.onglets li{
+	color: red;
+}
+
+#path a {
+    color: #ffb113;
+}
+
+#content ul.onglets li a {
+    color: #0046d4;
+}
