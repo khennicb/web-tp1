@@ -19,14 +19,18 @@ body.appendChild(newList);
 */
 var checkbox = document.getElementById("showMenu");
 checkbox.addEventListener("click", switchMenu);
-
+switchMenu();
 }
 
 function switchMenu(){
 
   var checkbox = document.getElementById("showMenu");
-  alert("Zbla zbla  =  " + checkbox.value);
-  if(checkbox.value == 1) {
+  var menu = document.getElementById("menu");
+  console.log("switchMenu\n");
 
+  if(checkbox.checked) {
+    menu.style.display="";
+  } else {
+    menu.style.display="none";
   }
 }
