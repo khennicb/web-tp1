@@ -20,4 +20,13 @@ body.appendChild(newList);
 
 
 
+
+//=====
+var checkbox = document.getElementsById("showMenu")[0];
+checkbox.addEventListener("click", switchMenu);
+
+}
+
+function switchMenu(){
+
 }
