@@ -1,5 +1,5 @@
 window.onload=function(){
-
+/*
 var body = document.getElementsByTagName("body")[0];
 var newList = document.createElement("ul");
 var newElem = [];
@@ -16,7 +16,7 @@ newList.appendChild(newElem[2]);
 
 
 body.appendChild(newList);
-
+*/
 
 
 
