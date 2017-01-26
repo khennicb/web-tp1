@@ -1,6 +1,6 @@
 window.onload=function(){
 	var element = document.getElementById("ltheme");
-	element.addEventListener("change", function(){switchTheme();});
+	element.addEventListener("change", switchTheme);
 
 	var checkbox = document.getElementById("showMenu");
 	checkbox.addEventListener("click", switchMenu);
