@@ -4,7 +4,7 @@ window.onload=function(){
 	var newList = document.createElement("ul");
 	var newElem = [];
 	for (var i = 0; i<3; i++) {
-	  newElem[i] = document.createElement("li");
+		newElem[i] = document.createElement("li");
 	}
 
 	newElem[0].appendChild(document.createTextNode("one"));
