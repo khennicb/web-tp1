@@ -17,16 +17,11 @@ newList.appendChild(newElem[2]);
 
 body.appendChild(newList);
 */
-
-
-
-
-//=====
-var checkbox = document.getElementsById("showMenu")[0];
+var checkbox = document.getElementById("showMenu")[0];
 checkbox.addEventListener("click", switchMenu);
 
 }
 
 function switchMenu(){
-
+  
 }
