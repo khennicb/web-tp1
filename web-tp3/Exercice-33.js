@@ -14,22 +14,24 @@ window.onload=function(){
 	newList.appendChild(newElem[1]);
 	newList.appendChild(newElem[2]);
 
-
 	body.appendChild(newList);
 	*/
 
 	var element = document.getElementById("ltheme");
 	element.addEventListener("change", function(){switchTheme();});
 
-
-	//=====
-	// var checkbox = document.getElementById("showMenu")[0];
-	// checkbox.addEventListener("click", switchMenu);
+	var checkbox = document.getElementById("showMenu");
+	checkbox.addEventListener("click", switchMenu);
 
 }
 
 function switchMenu(){
 
+  var checkbox = document.getElementById("showMenu");
+  alert("Zbla zbla  =  " + checkbox.value);
+  if(checkbox.value == 1) {
+
+  }
 }
 
 function switchTheme(){
