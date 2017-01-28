@@ -1,16 +1,18 @@
-.note > thead {
+
+tbody tr:nth-child(2n+1) {
+    background-color: white;
+}
+
+tbody tr:nth-child(2n) {
+    background-color: grey;
+}
+
+.note > thead > tr {
   background-color: black;
   font-family: sans-serif;
   color: white;
 }
 
-tbody:nth-child(2n+1) {
-    background-color: white;
-}
-
-tbody:nth-child(2n) {
-    background-color: grey;
-}
-.UE {
+.UE > * {
   background-color: skyblue;
 }
