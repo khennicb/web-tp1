@@ -13,6 +13,14 @@ tbody tr:nth-child(2n) {
   color: white;
 }
 
+tbody tr td span {
+	display: none;
+}
+
+tbody .UE td span{
+	display: initial;
+}
+
 .UE > * {
   background-color: skyblue;
 }
