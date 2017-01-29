@@ -118,5 +118,7 @@ function triTable () {
     // assigne les lignes au tableau
     tbody.innerHTML = "<tr>"+colonne.join("</tr><tr>")+"</tr>";
 
+
+    // TODO : Trouver solution pour s'en passer
     color_marks();
 }
