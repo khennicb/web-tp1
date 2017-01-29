@@ -73,6 +73,8 @@ function triTable () {
     	}
     }
 
+    console.log(colonne);
+
     // Recuper le  numero de la colone a trier
     var index = this.getAttribute("col-pos");
 
@@ -82,6 +84,8 @@ function triTable () {
     }else{
     	colonne.sort(triAlphaElems);
     }
+
+    console.log(colonne);
 
     // evalue les elements de la matrice
     function triAlphaElems (a, b) {
@@ -104,6 +108,8 @@ function triTable () {
     	colonne.reverse();
     }
 
+    console.log(colonne);
+
     // Construit les colonne du nouveau tableau
     for(i = 0; i < nNbrLigne; i++){
     	colonne[i] = "<td>"+colonne[i].join("</td><td>")+"</td>";
@@ -111,4 +117,6 @@ function triTable () {
 
     // assigne les lignes au tableau
     tbody.innerHTML = "<tr>"+colonne.join("</tr><tr>")+"</tr>";
+
+    color_marks();
 }
