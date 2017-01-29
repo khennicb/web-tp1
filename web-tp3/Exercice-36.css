@@ -24,3 +24,16 @@ tbody .UE td span{
 .UE > * {
   background-color: skyblue;
 }
+
+.mark-0-8 {
+	color : red;
+}
+.mark-8-10 {
+	color : orange;
+}
+.mark-10-12 {
+	color : yellow;
+}
+.mark-12-20 {
+	color : green;
+}
