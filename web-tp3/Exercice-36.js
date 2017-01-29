@@ -23,6 +23,21 @@ function color_marks (){
 	}
 }
 
+	function set_color_regarding_mark(mark_field) {
+		var mark = mark_field.textContent;
+
+		if (mark < 8) {
+			mark_field.className += "mark-0-8";
+		}else	if (mark < 10) {
+			mark_field.className += "mark-8-10";
+		}else	if (mark < 12) {
+			mark_field.className += "mark-10-12";
+		} else {
+			mark_field.className += "mark-12-20";
+		}
+
+	}
+
 // Initialise la fonction pour les tris
 function initTri () {
 	var ths = document.getElementsByTagName("th");
@@ -46,7 +61,7 @@ function triTable () {
 
 	// Construit la matrice
     // Récupère le tableau (tbody)
-    var tbody = document.getElementById("T-1").getElementsByTagName("tbody")[0]; 
+    var tbody = document.getElementById("T-1").getElementsByTagName("tbody")[0];
     var ligne = tbody.rows;
     var nNbrLigne = ligne.length;
     var colonne = new Array();
@@ -67,7 +82,7 @@ function triTable () {
     }else{
     	colonne.sort(triAlphaElems);
     }
-    
+
     // evalue les elements de la matrice
     function triAlphaElems (a, b) {
     	if(a[index] < b[index]){
@@ -97,4 +112,3 @@ function triTable () {
     // assigne les lignes au tableau
     tbody.innerHTML = "<tr>"+colonne.join("</tr><tr>")+"</tr>";
 }
-
