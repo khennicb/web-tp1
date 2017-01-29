@@ -1,7 +1,7 @@
 window.onload=function(){
 
 	color_marks();
-
+	initTri();
 }
 
 // Colorie les notes dans une couleur dépendant de leur valeur.
@@ -40,6 +40,24 @@ function color_marks (){
 		return "green";
 
 	}
+
+
+}
+
+
+function initTri () {
+
+	var ths = document.getElementsByTagName("th");
+	for (var i = 0; i < ths.length; i++) {
+		ths[i].addEventListener("click", triTable);
+		ths[i].setAttribute("col-pos", i);
+		ths[i].setAttribute("tri", 0);
+	};
+}
+
+function triTable () {
+	var tri = this.getAttribute("tri");
+	this.setAttribute("tri", (tri=="0") ? "1" : "0");
 
 
 }
