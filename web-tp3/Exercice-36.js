@@ -44,15 +44,20 @@ function color_marks (){
 
 }
 
-
+// Initialise la fonction pour les tris
 function initTri () {
-
 	var ths = document.getElementsByTagName("th");
+
 	for (var i = 0; i < ths.length; i++) {
 		ths[i].addEventListener("click", triTable);
 		ths[i].setAttribute("col-pos", i);
-		ths[i].setAttribute("tri", 0);
-	};
+		ths[i].setAttribute("tri", 1);
+		if (i == 0 || i == 4 || i == 5 || i == 7) {
+			ths[i].setAttribute("type", "num");
+		}else{
+			ths[i].setAttribute("type", "alpha-num");
+		}
+	}
 }
 
 function triTable () {
@@ -60,4 +65,57 @@ function triTable () {
 	this.setAttribute("tri", (tri=="0") ? "1" : "0");
 
 
+	// Construit la matrice
+    // Récupère le tableau (tbody)
+    var tbody = document.getElementById("T-1").getElementsByTagName("tbody")[0]; 
+    var ligne = tbody.rows;
+    var nNbrLigne = ligne.length;
+    var colonne = new Array();
+    for(var i = 0; i < nNbrLigne; i++) {
+    	var cellule = ligne[i].cells;
+    	colonne[i] = new Array();
+    	for(var j = 0; j < cellule.length; j++){
+    		colonne[i][j] = cellule[j].innerHTML;
+    	}
+    }
+
+    // Recuper le  numero de la colone a trier
+    var index = this.getAttribute("col-pos");
+
+    // Recupere le type de tri (alpha numerique ou numerique)
+    if (this.getAttribute("type") == "num") {
+    	colonne.sort(triNumElems);
+    }else{
+    	colonne.sort(triAlphaElems);
+    }
+    
+    // evalue les elements de la matrice
+    function triAlphaElems (a, b) {
+    	if(a[index] < b[index]){
+    		return -1;
+    	}else if (a[index] == b[index]) {
+    		return 0;
+    	}else{
+    		return 1;
+    	}
+    }
+
+    // evalue les elements de la matrice
+    function triNumElems (a, b) {
+    	return a[index] - b[index];
+    }
+
+    // Tri decroissant si necessaire
+    if (tri == "0") {
+    	colonne.reverse();
+    }
+
+    // Construit les colonne du nouveau tableau
+    for(i = 0; i < nNbrLigne; i++){
+    	colonne[i] = "<td>"+colonne[i].join("</td><td>")+"</td>";
+    }
+
+    // assigne les lignes au tableau
+    tbody.innerHTML = "<tr>"+colonne.join("</tr><tr>")+"</tr>";
 }
+
