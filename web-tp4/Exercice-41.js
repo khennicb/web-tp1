@@ -10,6 +10,7 @@ function load () {
 	}
 
 	initClicEnteteTableaux();
+	initClicH2();
 }
 
 // Cache les tableaux vide
@@ -91,4 +92,16 @@ function rallonger (tableau) {
 // Initialise l'entete
 function initClicEnteteTableaux () {
 	$('table').addClass('cliquable');
+}
+
+
+// Initialise le click sur H2
+function initClicH2 () {
+	$('h2').on('click', function(){clickH2($(this))});
+}
+
+
+function clickH2 (H2) {
+	console.log($(H2));
+	$(H2).animate({"right": "100px"}, "slow");
 }
