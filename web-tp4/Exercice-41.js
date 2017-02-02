@@ -8,6 +8,8 @@ function load () {
 	for (var i = 0; i < $('table').length; i++) {
 		raccourcir($('table')[i]);
 	}
+
+	initClicEnteteTableaux();
 }
 
 // Cache les tableaux vide
@@ -67,10 +69,20 @@ function raccourcir (tableau) {
 			indice++;
 		}
 
-		$(tableau).find('tr:nth-child(5)').after('<tr onclick="rallonger(this)"><td>...</td><td>...</td><td>...</td></tr>');
+		$(tableau).find('tr:nth-child(5)').after('<tr"><td>...</td><td>...</td><td>...</td></tr>');
 	};
 }
 
 function rallonger (tableau) {
-	console.log($(tableau));
+	if ($(tableau).find('tr').size() > 5) {
+		$(tableau).find('tr').css("display", "");
+		$(tableau).find('tr:nth-child(6)').remove();
+	};
+}
+
+function initClicEnteteTableaux () {
+	$('table').addClass('cliquable');
+	$('table').on('click', function () {
+		rallonger($(this));
+	});
 }
