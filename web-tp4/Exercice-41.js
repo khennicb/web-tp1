@@ -69,20 +69,26 @@ function raccourcir (tableau) {
 			indice++;
 		}
 
-		$(tableau).find('tr:nth-child(5)').after('<tr"><td>...</td><td>...</td><td>...</td></tr>');
+		// Rajoute la ligne ...
+		$(tableau).find('tr:nth-child(5)').after('<tr class="point"><td>...</td><td>...</td><td>...</td></tr>');
+		
+		// Change le listner
+		$(tableau).on('click', function(){rallonger($(tableau))});
 	};
 }
 
+
+// Rallonge le tableau
 function rallonger (tableau) {
-	if ($(tableau).find('tr').size() > 5) {
-		$(tableau).find('tr').css("display", "");
-		$(tableau).find('tr:nth-child(6)').remove();
-	};
+	$(tableau).find('tr').css("display", "");
+	$(tableau).find('tr.point').remove();
+
+	// Change le listner
+	$(tableau).on('click', function(){raccourcir($(tableau))});
 }
 
+
+// Initialise l'entete
 function initClicEnteteTableaux () {
 	$('table').addClass('cliquable');
-	$('table').on('click', function () {
-		rallonger($(this));
-	});
 }
