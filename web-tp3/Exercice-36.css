@@ -17,9 +17,6 @@ tbody tr td span {
 	display: none;
 }
 
-tbody .UE td span{
-	display: initial;
-}
 
 .UE > * {
   background-color: skyblue;
