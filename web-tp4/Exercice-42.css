@@ -1,0 +1,62 @@
+
+
+@media screen and (max-width: 800px) {
+	
+	thead > tr > th:nth-child(1),
+	thead > tr > th:nth-child(2),
+	thead > tr > th:nth-child(3),
+	thead > tr > th:nth-child(5),
+	thead > tr > th:nth-child(7), 
+	thead > tr > th:nth-child(8), 
+	thead > tr > th:nth-child(9) {
+		display: none;
+	}
+	
+	tbody > tr > td:nth-child(1),
+	tbody > tr > td:nth-child(2),
+	tbody > tr > td:nth-child(3),
+	tbody > tr > td:nth-child(5),
+	tbody > tr > td:nth-child(7), 
+	tbody > tr > td:nth-child(8), 
+	tbody > tr > td:nth-child(9) {
+		display: none;
+	}
+
+
+}
+
+tbody tr:nth-child(2n+1) {
+    background-color: white;
+}
+
+tbody tr:nth-child(2n) {
+    background-color: grey;
+}
+
+.note > thead > tr {
+  background-color: black;
+  font-family: sans-serif;
+  color: white;
+}
+
+tbody tr td span {
+	display: none;
+}
+
+
+.UE > * {
+  background-color: skyblue;
+}
+
+.mark-0-8 {
+	color : red;
+}
+.mark-8-10 {
+	color : orange;
+}
+.mark-10-12 {
+	color : yellow;
+}
+.mark-12-20 {
+	color : green;
+}
