@@ -1,4 +1,30 @@
 
+
+@media screen and (max-width: 800px) {
+	
+	thead > tr > th:nth-child(1),
+	thead > tr > th:nth-child(2),
+	thead > tr > th:nth-child(3),
+	thead > tr > th:nth-child(5),
+	thead > tr > th:nth-child(7), 
+	thead > tr > th:nth-child(8), 
+	thead > tr > th:nth-child(9) {
+		display: none;
+	}
+	
+	tbody > tr > td:nth-child(1),
+	tbody > tr > td:nth-child(2),
+	tbody > tr > td:nth-child(3),
+	tbody > tr > td:nth-child(5),
+	tbody > tr > td:nth-child(7), 
+	tbody > tr > td:nth-child(8), 
+	tbody > tr > td:nth-child(9) {
+		display: none;
+	}
+
+
+}
+
 tbody tr:nth-child(2n+1) {
     background-color: white;
 }
@@ -17,9 +43,6 @@ tbody tr td span {
 	display: none;
 }
 
-tbody .UE td span{
-	display: initial;
-}
 
 .UE > * {
   background-color: skyblue;
