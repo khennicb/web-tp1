@@ -8,6 +8,8 @@ function load () {
 	for (var i = 0; i < $('table').length; i++) {
 		raccourcir($('table')[i]);
 	}
+
+	initClicEnteteTableaux();
 }
 
 // Cache les tableaux vide
@@ -67,10 +69,26 @@ function raccourcir (tableau) {
 			indice++;
 		}
 
-		$(tableau).find('tr:nth-child(5)').after('<tr onclick="rallonger(this)"><td>...</td><td>...</td><td>...</td></tr>');
+		// Rajoute la ligne ...
+		$(tableau).find('tr:nth-child(5)').after('<tr class="point"><td>...</td><td>...</td><td>...</td></tr>');
+		
+		// Change le listner
+		$(tableau).on('click', function(){rallonger($(tableau))});
 	};
 }
 
+
+// Rallonge le tableau
 function rallonger (tableau) {
-	console.log($(tableau));
+	$(tableau).find('tr').css("display", "");
+	$(tableau).find('tr.point').remove();
+
+	// Change le listner
+	$(tableau).on('click', function(){raccourcir($(tableau))});
+}
+
+
+// Initialise l'entete
+function initClicEnteteTableaux () {
+	$('table').addClass('cliquable');
 }
