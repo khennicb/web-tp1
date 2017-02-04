@@ -101,7 +101,7 @@ function initClicH2 () {
 }
 
 
+// Deplace H2
 function clickH2 (H2) {
-	console.log($(H2));
-	$(H2).animate({"right": "100px"}, "slow");
+	$(H2).animate({"padding-left": "10em"}, 1000).animate({"padding-left": "0em"}, 1000);
 }
