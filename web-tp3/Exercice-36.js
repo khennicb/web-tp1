@@ -65,7 +65,7 @@ function triTable () {
     var ligne = tbody.rows;
     var nNbrLigne = ligne.length;
     var colonne = new Array();
-    
+
     for(var i = 0; i < nNbrLigne; i++) {
         colonne[i] = ligne[i];
     }
@@ -100,8 +100,8 @@ function triTable () {
 
     // evalue les elements de la matrice
     function triNumElems (a, b) {
-        var a_value = a.children[index].innerText;
-        var b_value = b.children[index].innerText;
+        var a_value = a.children[index].innerHTML;
+        var b_value = b.children[index].innerHTML;
 
     	return a_value - b_value;
     }
