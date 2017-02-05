@@ -25,58 +25,50 @@ $(function() {
 
 // Initialise la fonction pour les tris
 function initTri () {
-	var ths = document.getElementsByTagName("th");
+	var ths = $("th");
 
-	for (var i = 0; i < ths.length; i++) {
-		ths[i].addEventListener("click", triTable);
-		ths[i].setAttribute("col-pos", i);
-		ths[i].setAttribute("tri", 1);
+	$("th").click(triTable);
+	$("th").addClass("tri", 1);
+
+	$("th").each(function( i ){
+		$(this).attr("col-pos", i);
 		if (i == 0 || i == 4 || i == 5 || i == 7) {
-			ths[i].setAttribute("type", "num");
+			$(this).attr("type", "num");
 		}else{
-			ths[i].setAttribute("type", "alpha-num");
+			$(this).attr("type", "alpha-num");
 		}
-	}
+	});
+
+
 }
 
 function triTable () {
-	var tri = this.getAttribute("tri");
-	this.setAttribute("tri", (tri=="0") ? "1" : "0");
 
+	var tri = $(this).attr("tri");
+	$(this).attr("tri", (tri=="0") ? "1" : "0");
 
 	// Construit la matrice
     // Récupère le tableau (tbody)
-    var tbody = document.getElementById("T-1").getElementsByTagName("tbody")[0];
-    var ligne = tbody.rows;
-    var nNbrLigne = ligne.length;
-    var colonne = new Array();
 
-    for(var i = 0; i < nNbrLigne; i++) {
-        colonne[i] = ligne[i];
-    }
-
+    var colonne = jQuery.makeArray($("tbody").children());
+    var nNbrLigne = colonne.length;
     console.log(colonne);
 
     // Recuper le  numero de la colone a trier
-    var index = this.getAttribute("col-pos");
-		console.log(index);
+    var index = $(this).attr("col-pos");
 
     // Recupere le type de tri (alpha numerique ou numerique)
-    if (this.getAttribute("type") == "num") {
+    if ($(this).attr("type") == "num") {
     	colonne.sort(triNumElems);
-    }else{
+    }else {
     	colonne.sort(triAlphaElems);
     }
 
-    console.log(colonne);
 
     // evalue les elements de la matrice
     function triAlphaElems (a, b) {
         var a_value = a.children[index].innerHTML;
         var b_value = b.children[index].innerHTML;
-
-				console.log(a_value);
-				console.log(b_value);
 
     	if(a_value < b_value){
     		return -1;
@@ -100,8 +92,6 @@ function triTable () {
     	colonne.reverse();
     }
 
-    console.log(colonne);
-
     // Construit les colonne du nouveau tableau
     var bodyt_to_insert = "";
     for(i = 0; i < nNbrLigne; i++){
@@ -111,7 +101,7 @@ function triTable () {
     //console.log(bodyt_to_insert);
 
     // assigne les lignes au tableau
-    tbody.innerHTML = bodyt_to_insert;
+    $("tbody").html(bodyt_to_insert);
 
 
 }
