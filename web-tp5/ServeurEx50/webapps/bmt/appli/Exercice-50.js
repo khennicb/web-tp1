@@ -105,7 +105,12 @@ function addTag() { // TODO : a tester !!!
 
 /* Handles the click on a tag */
 function clickTag() {
-	//TODO 7
+	if ($(this).hasClass("selected") == false) {
+		$('#items .item.tag').removeClass("selected");
+		$(this).addClass("selected");
+		//TODO cacher son nom (<h2>)
+
+	}
 }
 
 /* Performs the modification of a tag */
