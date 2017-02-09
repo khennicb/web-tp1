@@ -1,6 +1,6 @@
 /* Base URL of the web-service for the current user */
 var wsBase = 'http://localhost:8080/bmt/foreyn-khennicb/'
-/* Shows the identity of the current user */ 
+/* Shows the identity of the current user */
 function setIdentity() {
 	var logs = wsBase.split("/")[4];
 	$('.identity').prepend(logs);
@@ -18,7 +18,22 @@ function setContentHeight() {
 
 /* Selects a new object type : either "bookmarks" or "tags" */
 function selectObjectType(type) {
-	// TODO 3
+
+	if (type == "bookmarks") {
+		if($("#menu > .bookmarks").hasClass("selected") == false) {
+			$("#menu > .tags").removeClass("selected");
+			$("#menu > .bookmarks").addClass("selected");
+			listBookmarks();
+		}
+	} else if (type == "tags") {
+		if($("#menu > .tags").hasClass("selected") == false) {
+			$("#menu > .bookmarks").removeClass("selected");
+			$("#menu > .tags").addClass("selected");
+			listTags();
+		}
+	}
+
+
 }
 
 /* Loads the list of all bookmarks and displays them */
@@ -55,7 +70,7 @@ function modifyTag() {
 /* Removes a tag */
 function removeTag() {
 	//TODO 9
-} 
+}
 /* On document loading */
 $(function() {
 	// Put the name of the current user into <h1>
