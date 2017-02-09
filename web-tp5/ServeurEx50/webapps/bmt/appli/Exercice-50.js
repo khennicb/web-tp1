@@ -38,7 +38,29 @@ function selectObjectType(type) {
 
 /* Loads the list of all bookmarks and displays them */
 function listBookmarks() {
-	//TODO 4
+	$('#items').empty();
+	var url = 'http://localhost:8080/bmt/foreyn-khennicb/bookmarks';
+	jQuery.getJSON(url, printBookmarks).fail(function(){console.log('error :(')});
+}
+
+function printBookmarks(data){
+	$(data).each(insertBookmark);
+}
+
+function insertBookmark(){
+	// console.log(this);
+	var copyBook = $('.model.bookmark').clone();
+	copyBook.find('h2').append(this['title']);
+	copyBook.find('a').append(this['link']);
+	copyBook.find('a').append(this['link']);
+
+	var tagFather = copyBook.find('.tags');
+	for (var i = 0; i < this['tags'].length; i++) {
+		tagFather.append('<li>' +this['tags'][i]['name'] +'</li>');
+	}
+
+	copyBook.toggleClass('model item');
+	$('#items').append(copyBook);
 }
 
 /* Loads the list of all tags and displays them */
