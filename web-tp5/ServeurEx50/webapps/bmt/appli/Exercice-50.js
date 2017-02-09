@@ -8,7 +8,11 @@ function setIdentity() {
 
 /* Sets the height of <div id="#contents"> to benefit from all the remaining place on the page */
 function setContentHeight() {
-	// TODO 2
+	var posContent = $('#contents').offset()['top'];
+	var taillePage = $(window).height();
+	// #LesNombresMagiqueCestLaVie
+	// TODO : retirer ce nombre magique...
+	$('#contents').height(taillePage - posContent - 32);
 }
 
 
