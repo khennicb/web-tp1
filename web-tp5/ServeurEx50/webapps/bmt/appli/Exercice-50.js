@@ -85,8 +85,22 @@ function listTags() {
 }
 
 /* Adds a new tag */
-function addTag() {
-	//TODO 6
+function addTag() { // TODO : a tester !!!
+	console.log(this);
+	var name = $(this).attr('name');
+	console.log(name);
+
+	if(name == null){
+		alert("Erreur : ce tag ne possède pas de nom !");
+		return ;
+	}
+
+	var url = 'http://localhost:8080/bmt/foreyn-khennicb/tags';
+	var JSONobj = JSON.stringify(name,null,2);
+	jQuery.post(url, JSONobj)
+		.done(function(){
+			listTags();
+		});
 }
 
 /* Handles the click on a tag */
