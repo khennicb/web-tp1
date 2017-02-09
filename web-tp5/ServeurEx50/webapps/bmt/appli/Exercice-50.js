@@ -23,7 +23,13 @@ function selectObjectType(type) {
 
 /* Loads the list of all bookmarks and displays them */
 function listBookmarks() {
-	//TODO 4
+	$('#items').empty();
+	var url = 'http://localhost:8080/bmt/foreyn-khennicb/bookmarks';
+	jQuery.get(url, printBookmarks);
+}
+
+function printBookmarks(data){
+	console.log(data);
 }
 
 /* Loads the list of all tags and displays them */
