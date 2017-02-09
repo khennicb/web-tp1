@@ -16,14 +16,16 @@ function setContentHeight() {
 function selectObjectType(type) {
 
 	if (type == "bookmarks") {
-		if($(".bookmarks").hasClass("selected") == false) {
-			$(".tags").removeClass("selected");
-			$(".bookmarks").addClass("selected");
+		if($("#menu > .bookmarks").hasClass("selected") == false) {
+			$("#menu > .tags").removeClass("selected");
+			$("#menu > .bookmarks").addClass("selected");
+			listBookmarks();
 		}
 	} else if (type == "tags") {
-		if($(".tags").hasClass("selected") == false) {
-			$(".bookmarks").removeClass("selected");
-			$(".tags").addClass("selected");
+		if($("#menu > .tags").hasClass("selected") == false) {
+			$("#menu > .bookmarks").removeClass("selected");
+			$("#menu > .tags").addClass("selected");
+			listTags();
 		}
 	}
 
