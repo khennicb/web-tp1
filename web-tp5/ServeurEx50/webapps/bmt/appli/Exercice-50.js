@@ -21,14 +21,14 @@ function selectObjectType(type) {
 
 	if (type == "bookmarks") {
 		if($("#menu > .bookmarks").hasClass("selected") == false) {
-			$("#menu > .tags").removeClass("selected");
+			$("#menu > .tags, #add > .tag").removeClass("selected");
 			$("#menu > .bookmarks").addClass("selected");
 			listBookmarks();
 		}
 	} else if (type == "tags") {
 		if($("#menu > .tags").hasClass("selected") == false) {
+			$("#menu > .tags, #add > .tag").addClass("selected");
 			$("#menu > .bookmarks").removeClass("selected");
-			$("#menu > .tags").addClass("selected");
 			listTags();
 		}
 	}
@@ -68,20 +68,18 @@ function listTags() {
 	$("#items").empty();
 	$.getJSON( "http://localhost:8080/bmt/foreyn-khennicb/tags", function( data ) {
 		var parsed_data = data;
-//		var parsed_data = jQuery.parseJSON(data);
-//		console.log(parsed_data);
-		var template_tag_node = $("#models > .tag");
 		console.log(template_tag_node);
 		for (i in parsed_data) {
+			var template_tag_node = $('.model.tag').clone();
 			console.log(parsed_data[i]);
-			//var new_tag_node = jQuery.extend(true, {}, template_tag_node);
+			template_tag_node.find('h2').text(parsed_data[i]['name']);
+			template_tag_node.removeClass("model");
+			template_tag_node.addClass("item");
+			template_tag_node.attr("num", parsed_data[i]['id']);
+			console.log(template_tag_node);
 			$("#items").append(template_tag_node);
-//			var last_item =	$("#items > .tags:last-child > h2");
-			$("#items > .tags:last-child > h2").text(parsed_data[i].name);
-			$("#items > .tags:last-child").attr("num", i);
 
 		}
-		$("#items > .tags").toggleClass("model item");
 
 	});
 }
