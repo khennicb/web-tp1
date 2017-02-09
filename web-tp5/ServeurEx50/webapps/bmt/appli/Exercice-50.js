@@ -2,7 +2,8 @@
 var wsBase = 'http://localhost:8080/bmt/foreyn-khennicb/'
 /* Shows the identity of the current user */ 
 function setIdentity() {
-	//TODO 1
+	var logs = wsBase.split("/")[4];
+	$('.identity').prepend(logs);
 }
 
 /* Sets the height of <div id="#contents"> to benefit from all the remaining place on the page */
