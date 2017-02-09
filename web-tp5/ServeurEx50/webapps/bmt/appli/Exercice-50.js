@@ -65,7 +65,25 @@ function insertBookmark(){
 
 /* Loads the list of all tags and displays them */
 function listTags() {
-	//TODO 5
+	$("#items").empty();
+	$.getJSON( "http://localhost:8080/bmt/foreyn-khennicb/tags", function( data ) {
+		var parsed_data = data;
+//		var parsed_data = jQuery.parseJSON(data);
+//		console.log(parsed_data);
+		var template_tag_node = $("#models > .tag");
+		console.log(template_tag_node);
+		for (i in parsed_data) {
+			console.log(parsed_data[i]);
+			//var new_tag_node = jQuery.extend(true, {}, template_tag_node);
+			$("#items").append(template_tag_node);
+//			var last_item =	$("#items > .tags:last-child > h2");
+			$("#items > .tags:last-child > h2").text(parsed_data[i].name);
+			$("#items > .tags:last-child").attr("num", i);
+
+		}
+		$("#items > .tags").toggleClass("model item");
+
+	});
 }
 
 /* Adds a new tag */
