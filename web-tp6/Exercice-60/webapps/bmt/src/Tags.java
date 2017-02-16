@@ -114,7 +114,7 @@ public class Tags {
 			Dispatcher.RequestMethod method, String[] requestPath,
 			Map<String, List<String>> queryParams, User user) throws IOException{
 
-		System.out.println("Action: handleTagList - " + method + "-" + queryParams);
+		System.out.println("Action: handleTag - " + method + "-" + queryParams);
 		if (method == Dispatcher.RequestMethod.PUT || method == Dispatcher.RequestMethod.DELETE) {
 			resp.setStatus(405);
 			return;
@@ -127,11 +127,14 @@ public class Tags {
 			Tag tag = null;
 			String tagName = requestPath[requestPath.length-1];
 			try {
-				tag = TagDAO.getTagByName(user, new Tag(tagName));
+				tag = TagDAO.getTagByName(tagName, user);
+				System.out.println("Resultat : Tag trouvé - " + tag );
 			} catch (SQLException ex) {
+				System.out.println("ERREUR : handleTag" );
 				resp.setStatus(500);
 				return;
 			}
+			System.out.println("Resultat : Tag trouvé - " + tag );
 			/*
 
 			// Encode the tag list to JSON
