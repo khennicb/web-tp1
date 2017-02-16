@@ -77,20 +77,15 @@ public class Tags {
 		// Handle POST
 		if (method == Dispatcher.RequestMethod.POST) {
 			// TODO 1
-			System.out.println(queryParams);
-			System.out.println(queryParams.get("json"));
-			System.out.println(queryParams.get("json").get(0));
-			System.out.println(queryParams.get("json").get(0));
 			
+			String name = new JSONObject(queryParams.get("json").get(0)).getString("name");
 			
-			
-			String name = queryParams.get("json").get(0);
 			System.out.println(name);
 			try {
 				if(TagDAO.getTagByName(name, user) == null){
-					
+					TagDAO.saveTag(new Tag(name), user);
 				}
-			} catch (SQLException e) {
+			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
