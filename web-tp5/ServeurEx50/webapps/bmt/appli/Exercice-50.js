@@ -1,5 +1,6 @@
 /* Base URL of the web-service for the current user */
 var wsBase = 'http://localhost:8080/bmt/foreyn-khennicb/'
+// chemin pour voir le site : http://localhost:8080/bmt/appli/Exercice-50.html
 /* Shows the identity of the current user */
 function setIdentity() {
 	var logs = wsBase.split("/")[4];
