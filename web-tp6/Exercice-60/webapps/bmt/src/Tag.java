@@ -1,7 +1,7 @@
 /**
  * // TODO comment
  * 
- * @author Jan Mikac, Sebastien Viardot
+ * @author Jan Mikac, Sebastien Viardot 
  */
 public class Tag {
 	
