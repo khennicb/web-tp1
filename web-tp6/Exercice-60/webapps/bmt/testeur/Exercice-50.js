@@ -1,5 +1,6 @@
 /* Base URL of the web-service for the current user */
-var wsBase = 'http://localhost:8080/bmt/login1-login2-login3/'
+// chemin pour voir le site : http://localhost:8080/bmt/testeur/Exercice-50.html
+var wsBase = 'http://localhost:8080/bmt/foreyn-khennicb/'
 /* Shows the identity of the current user */ 
 function setIdentity() {
 	//TODO 1
