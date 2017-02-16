@@ -17,8 +17,8 @@ public class TagDAO {
 	private static final String SQL_READ_TAGS = "select id,name from Tag where user_id=?";
 	private static final String SQL_READ_TAG = "select id,name from Tag where user_id=? and name=?";
 	private static final String SQL_READ_TAG_BY_ID = "select id,name from Tag where user_id=? and id=?";
-
-
+	private static final String SQL_INSERT_TAG = "insert into tag (name, user_id) values (?,?)";
+	
 	/**
 	 * Provides the tags of a user.
 	 * 
@@ -84,7 +84,18 @@ public class TagDAO {
 		} finally{conn.close();}
 	}
 	
-	public static void saveTag(Tag tag, User user){
+	public static void saveTag(Tag tag, User user) throws SQLException{
+		Connection conn = DBConnection.getConnection();
 		
+		try {
+			PreparedStatement stmt = conn.prepareStatement(SQL_INSERT_TAG);
+			stmt.setString(1, tag.getName());
+			stmt.setLong(2, user.getId());
+			
+			boolean result = stmt.execute();
+			
+			// TODO : renvoyer une erreur si l'insertion c'est mal passe ?
+			
+		} finally {conn.close();}
 	}
 }
