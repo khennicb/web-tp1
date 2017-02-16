@@ -96,8 +96,53 @@ public class Tags {
 	public static void handleTag(HttpServletRequest req, HttpServletResponse resp,
 			Dispatcher.RequestMethod method, String[] requestPath,
 			Map<String, List<String>> queryParams, User user) throws IOException{
-		System.out.println("Action: handleTag - " + method + "-" + queryParams);
-		// TODO 2
+
+		System.out.println("Action: handleTagList - " + method + "-" + queryParams);
+		if (method == Dispatcher.RequestMethod.PUT || method == Dispatcher.RequestMethod.DELETE) {
+			resp.setStatus(405);
+			return;
+		}
+
+		// Handle GET
+		if (method == Dispatcher.RequestMethod.GET) {
+
+			// Get the tag list
+			Tag tag = null;
+			String tagName = requestPath[requestPath.length-1];
+			try {
+				tag = TagDAO.getTagByName(user, new Tag(tagName));
+			} catch (SQLException ex) {
+				resp.setStatus(500);
+				return;
+			}
+			/*
+
+			// Encode the tag list to JSON
+			String json = "[";
+			for (int i = 0, n = tags.size(); i < n; i++) {
+				Tag tag = tags.get(i);
+				json += tag.toJson();
+				if (i < n - 1)
+					json += ", ";
+			}
+			json += "]";
+
+			// Send the response
+			resp.setStatus(200);
+			resp.setContentType("application/json");
+			resp.getWriter().print(json);
+			*/
+			return;
+		}
+
+		// Handle POST
+		if (method == Dispatcher.RequestMethod.POST) {
+			// TODO 1
+		}
+
+		// Other
+		resp.setStatus(405);
+
 	}
 
 	/**
