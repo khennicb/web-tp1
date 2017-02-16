@@ -122,31 +122,21 @@ public class Tags {
 			Tag tag = null;
 			String tagName = requestPath[requestPath.length-1];
 			try {
-				tag = TagDAO.getTagByName(tagName, user);
-				System.out.println("Resultat : Tag trouvé - " + tag );
+				tag = TagDAO.getTagById(Long.parseLong(tagName, 10), user);
 			} catch (SQLException ex) {
 				System.out.println("ERREUR : handleTag" );
 				resp.setStatus(500);
 				return;
 			}
 			System.out.println("Resultat : Tag trouvé - " + tag );
-			/*
 
 			// Encode the tag list to JSON
-			String json = "[";
-			for (int i = 0, n = tags.size(); i < n; i++) {
-				Tag tag = tags.get(i);
-				json += tag.toJson();
-				if (i < n - 1)
-					json += ", ";
-			}
-			json += "]";
+			String json = tag.toJson();
 
 			// Send the response
 			resp.setStatus(200);
 			resp.setContentType("application/json");
 			resp.getWriter().print(json);
-			*/
 			return;
 		}
 

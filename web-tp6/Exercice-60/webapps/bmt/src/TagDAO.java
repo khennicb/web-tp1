@@ -16,6 +16,8 @@ public class TagDAO {
 	 */
 	private static final String SQL_READ_TAGS = "select id,name from Tag where user_id=?";
 	private static final String SQL_READ_TAG = "select id,name from Tag where user_id=? and name=?";
+	private static final String SQL_READ_TAG_BY_ID = "select id,name from Tag where user_id=? and id=?";
+
 
 	/**
 	 * Provides the tags of a user.
@@ -44,6 +46,25 @@ public class TagDAO {
 	}
 	
 	//TODO
+	public static Tag getTagById(long id, User user) throws SQLException{
+		Tag myTag = null;
+		Connection conn = DBConnection.getConnection();
+		
+		try{
+			PreparedStatement stmt = conn.prepareStatement(SQL_READ_TAG_BY_ID);
+			stmt.setLong(1, user.getId());
+			stmt.setLong(2, id);
+			
+			ResultSet result = stmt.executeQuery();
+			
+			if(result.next()){
+				myTag = new Tag(result.getString(2));
+			}
+			
+			return myTag;
+		} finally{conn.close();}
+	}
+
 	public static Tag getTagByName(String name, User user) throws SQLException{
 		Tag myTag = null;
 		Connection conn = DBConnection.getConnection();
