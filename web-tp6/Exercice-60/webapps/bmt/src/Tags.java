@@ -84,11 +84,16 @@ public class Tags {
 			try {
 				if(TagDAO.getTagByName(name, user) == null){
 					TagDAO.saveTag(new Tag(name), user);
+					
+					resp.setStatus(201);
+					return;
 				}
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+			resp.setStatus(304);
+			return;
 		}
 
 		// Other
