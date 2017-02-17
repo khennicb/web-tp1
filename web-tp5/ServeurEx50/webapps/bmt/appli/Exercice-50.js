@@ -108,10 +108,16 @@ function clickTag() {
 	if ($(this).hasClass("selected") == false) {
 		$('#items .item.tag').removeClass("selected");
 		$('#items .item.tag').find('h2').show();
+		$('#items .item.tag').find('h2').nextAll().remove();
 		$(this).addClass("selected");
-		$(this).find('h2').hide();
 
-		//TODO cacher son nom (<h2>)
+		var h2_tag = $(this).find('h2');
+		h2_tag.hide();
+
+		h2_tag.after('<input type="text" name="name_mod" value="' + h2_tag.text() + '"><input type="button" name="modify" value="Modify name"> <input type="button" name="remove" value="Remove tag">');
+		$('input[type="button"][name="modify"]', $tag).on('click', modifyTag);
+		$('input[type="button"][name="remove"]', $tag).on('click', removeTag);
+
 
 	}
 }
