@@ -115,8 +115,8 @@ function clickTag() {
 		h2_tag.hide();
 
 		h2_tag.after('<input type="text" name="name_mod" value="' + h2_tag.text() + '"><input type="button" name="modify" value="Modify name"> <input type="button" name="remove" value="Remove tag">');
-		$('input[type="button"][name="modify"]', $tag).on('click', modifyTag);
-		$('input[type="button"][name="remove"]', $tag).on('click', removeTag);
+		$('input[type="button"][name="modify"]', $(this)).on('click', modifyTag);
+		$('input[type="button"][name="remove"]', $(this)).on('click', removeTag);
 
 
 	}
