@@ -86,7 +86,7 @@ function listTags() {
 }
 
 /* Adds a new tag */
-function addTag() { 
+function addTag() {
 	var elem = $(this).siblings('input[name=name]');
 	var nomTag = elem.val();
 
@@ -107,7 +107,10 @@ function addTag() {
 function clickTag() {
 	if ($(this).hasClass("selected") == false) {
 		$('#items .item.tag').removeClass("selected");
+		$('#items .item.tag').find('h2').show();
 		$(this).addClass("selected");
+		$(this).find('h2').hide();
+
 		//TODO cacher son nom (<h2>)
 
 	}
