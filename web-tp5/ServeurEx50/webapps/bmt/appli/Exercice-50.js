@@ -138,8 +138,15 @@ function modifyTag() {
 
 /* Removes a tag */
 function removeTag() {
-	//TODO 9
+	var idTag = $(this).parents('.tag').attr('num');
+	var url = wsBase + "tags/" + idTag;
+
+	jQuery.post(url, "x-http-method=delete")
+		.done(function(){
+			listTags();
+		});
 }
+
 /* On document loading */
 $(function() {
 	// Put the name of the current user into <h1>
