@@ -11,6 +11,7 @@ import org.h2.jdbcx.JdbcConnectionPool;
 public class DBConnection {
 	/**
 	 * Connection pool
+	 * http://localhost:8080/bmt/foreyn-kennicb/reinit?x-http-method=post
 	 */
 	private static final JdbcConnectionPool pool;
 

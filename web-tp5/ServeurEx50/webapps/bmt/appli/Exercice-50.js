@@ -118,7 +118,16 @@ function clickTag() {
 
 /* Performs the modification of a tag */
 function modifyTag() {
-	//TODO 8
+	var idTag = $(this).parents('.tag').attr('num');
+	var url = wsBase + 'tags/' + idTag;
+	var newValue = $(this).siblings('input[name="name_mod"]').attr('value');
+
+	var obj = {"id" : idTag, "name": newValue};
+
+	jQuery.post(url, "json=" + JSON.stringify(obj) + "&x-http-method=put")
+		.done(function(){
+			listTags();
+		});
 }
 
 /* Removes a tag */
