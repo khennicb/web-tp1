@@ -11,7 +11,8 @@ public class BookmarkDAO {
 	 * SQL query for user login
 	 */
 	private static final String SQL_READ_BOOKMARKS = "select id,description,link,title from Bookmark where user_id=?";
-	private static final String SQL_READ_BOOKMARK = "select id,description,link,title from Bookmark where user_id=? and link=?";
+	//private static final String SQL_READ_BOOKMARK = "select id,description,link,title from Bookmark where user_id=? and link=?";
+	private static final String SQL_READ_BOOKMARK_TAG = "select tags_id from bookmark_tag where bookmarks_id=?";
 	
 	public static List<Bookmark> getBookmarks(User user) throws SQLException {
 		List<Bookmark> list = new ArrayList<>();

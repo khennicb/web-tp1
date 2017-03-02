@@ -1,3 +1,4 @@
+import java.util.List;
 
 public class Bookmark {
 	
@@ -5,6 +6,7 @@ public class Bookmark {
 	private String description;
 	private String link = null;
 	private String title = null;
+	private List<Tag> tags = null;
 	
 	
 	public Bookmark(Long id, String description, String link, String title) {
@@ -54,7 +56,18 @@ public class Bookmark {
 		this.title = title;
 	}
 	
+	public List<Tag> getTags() {
+		return tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;
+	}
 	
+	public void addTag(Tag tag){
+		tags.add(tag);
+	}
+
 	/**
 	 * Encodes the tag in JSON.
 	 * 
@@ -64,6 +77,11 @@ public class Bookmark {
 		String json = "{";
 		if (id != null)
 			json += "\"id\":" + id;
+		if (title != null) {
+			if (json.length() > 1)
+				json += ", ";
+			json += "\"title\":\"" + title + "\"";
+		}
 		if (description != null) {
 			if (json.length() > 1)
 				json += ", ";
@@ -74,11 +92,18 @@ public class Bookmark {
 				json += ", ";
 			json += "\"link\":\"" + link + "\"";
 		}
-		if (title != null) {
-			if (json.length() > 1)
+		
+		if (json.length() > 1)
+			json += ", ";
+		json += "\"tags\":[";
+		for (int i = 0, n = tags.size(); i < n; i++) {
+			Tag tag = tags.get(i);
+			json += tag.toJson();
+			if (i < n - 1)
 				json += ", ";
-			json += "\"title\":\"" + title + "\"";
 		}
+		json +=	"]";
+		
 		json += "}";
 		return json;
 	}
