@@ -114,11 +114,10 @@ public class Tags {
 			Map<String, List<String>> queryParams, User user) throws IOException{
 
 		System.out.println("Action: handleTag - " + method + "-" + queryParams);
-		if (method == Dispatcher.RequestMethod.PUT || method == Dispatcher.RequestMethod.DELETE) {
 
-			// Get the tag list
-			Tag tag = null;
-			
+		
+		if (method == Dispatcher.RequestMethod.PUT ) {
+
 			String name = new JSONObject(queryParams.get("json").get(0)).getString("name");
 			String id   = new JSONObject(queryParams.get("json").get(0)).getString("id");
 
@@ -133,6 +132,25 @@ public class Tags {
 				e.printStackTrace();
 			}
 
+			
+			resp.setStatus(405);
+			return;
+		}
+
+		
+		if (method == Dispatcher.RequestMethod.DELETE) {
+			
+			String tagId = requestPath[requestPath.length-1];
+			try {
+				Tag tag = TagDAO.getTagById(new Long(tagId), user) ;
+				if(tag != null){
+					TagDAO.removeTag(new Tag(new Long(tagId), tag.getName()), user);
+					resp.setStatus(201);
+					return;
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			
 			resp.setStatus(405);
 			return;
