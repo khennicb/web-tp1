@@ -97,6 +97,11 @@ public class Dispatcher {
 		// Response to /{login}/bookmarks...
 		if ("bookmarks".equals(requestPath[1])) {
 			// TODO 3
+			if (requestPath.length == 2)
+				Bookmarks.handleBookmarksList(req, resp, method, requestPath, queryParams, user);
+			else
+				resp.sendError(404);
+			return;
 		}
 
 		// Response to other requests
