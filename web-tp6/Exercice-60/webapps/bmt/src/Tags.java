@@ -126,7 +126,7 @@ public class Tags {
 				if(TagDAO.getTagByName(name, user) == null){
 					TagDAO.modifyTag(new Tag(new Long(id), name), user);
 
-					resp.setStatus(201);
+					resp.setStatus(204);
 					return;
 				}
 			} catch (Exception e) {
@@ -146,7 +146,7 @@ public class Tags {
 				Tag tag = TagDAO.getTagById(new Long(tagId), user) ;
 				if(tag != null){
 					TagDAO.removeTag(new Tag(new Long(tagId), tag.getName()), user);
-					resp.setStatus(201);
+					resp.setStatus(204);
 					return;
 				}
 			} catch (Exception e) {
@@ -202,7 +202,38 @@ public class Tags {
 			Map<String, List<String>> queryParams, User user) throws IOException {
 
 		System.out.println("Action: handleTagBookmarks - " + method + "-" + queryParams);
-		// TODO 2
+
+
+		// Handle GET
+		if (method == Dispatcher.RequestMethod.GET) {
+
+			String tagId = requestPath[requestPath.length-1];
+			List<Bookmark> bookmarks = null;
+			try{
+				bookmarks = BookmarkDAO.getBookmarksFromTag(user, TagDAO.getTagById(new Long(tagId), user));
+			} catch (SQLException ex) {
+				resp.setStatus(500);
+				return;
+			}
+			
+			// Encode the tag list to JSON
+			String json = "[";
+			for (int i = 0, n = bookmarks.size(); i < n; i++) {
+				Bookmark book = bookmarks.get(i);
+				json += book.toJson();
+				if (i < n - 1)
+					json += ", ";
+			}
+			json += "]";
+			System.out.println(json);
+			// Send the response
+			resp.setStatus(200);
+			resp.setContentType("application/json");
+			resp.getWriter().print(json);
+			return;
+		}
+	
+	
 	}
 
 	/**
