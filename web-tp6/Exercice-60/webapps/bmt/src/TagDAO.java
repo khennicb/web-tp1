@@ -61,7 +61,6 @@ public class TagDAO {
 			
 			if(result.next()){
 				String name = result.getString(2);
-				System.out.println(name);
 				myTag = new Tag(id, name);
 			}
 			
