@@ -6,6 +6,9 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 public class Bookmarks {
 	
 	public static void handleBookmarksList(HttpServletRequest req, HttpServletResponse resp,
@@ -48,7 +51,15 @@ public class Bookmarks {
 		
 		// Handle POST
 		if (method == Dispatcher.RequestMethod.POST){
+			String title = new JSONObject(queryParams.get("json").get(0)).getString("title");
+			String description = new JSONObject(queryParams.get("json").get(0)).getString("description");
+			String link = new JSONObject(queryParams.get("json").get(0)).getString("link");
 			
+			
+			JSONArray tags= new JSONObject(queryParams.get("json").get(0)).getJSONArray("tags");
+			
+			System.out.println(title + " " + description + " " + link);
+			System.out.println(tags.toString());
 		}
 	}
 
