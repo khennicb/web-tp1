@@ -49,8 +49,29 @@ public class BookmarkDAO {
 				String link = result.getString(3);
 				String title = result.getString(4);
 				Bookmark bookmark = new Bookmark(id, description, link, title);
+				
+				bookmark.setTags(getBookmarkTags(user, id));
+				
 				list.add(bookmark);
 			}			
+			return list;
+		} finally{conn.close();}
+	}
+	
+	public static List<Tag> getBookmarkTags(User user, long idBookmark) throws SQLException {
+		List<Tag> list = new ArrayList<Tag>();
+		Connection conn = DBConnection.getConnection();
+		try{
+			
+			PreparedStatement stmt = conn.prepareStatement(SQL_READ_BOOKMARK_TAG);
+			stmt.setLong(1, idBookmark);
+			ResultSet result = stmt.executeQuery();
+			while (result.next()) {
+				long idTag = result.getLong(1);
+				Tag tag = TagDAO.getTagById(idTag, user);
+				list.add(tag);
+			}
+			
 			return list;
 		} finally{conn.close();}
 	}

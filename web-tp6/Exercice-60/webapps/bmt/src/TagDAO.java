@@ -60,7 +60,8 @@ public class TagDAO {
 			ResultSet result = stmt.executeQuery();
 			
 			if(result.next()){
-				myTag = new Tag(result.getString(2));
+				String name = result.getString(2);
+				myTag = new Tag(id, name);
 			}
 			
 			return myTag;

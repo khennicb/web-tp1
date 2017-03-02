@@ -80,7 +80,6 @@ public class Tags {
 
 			String name = new JSONObject(queryParams.get("json").get(0)).getString("name");
 
-			System.out.println(name);
 			try {
 				if(TagDAO.getTagByName(name, user) == null){
 					TagDAO.saveTag(new Tag(name), user);
@@ -170,7 +169,7 @@ public class Tags {
 				resp.setStatus(500);
 				return;
 			}
-			System.out.println("Resultat : Tag trouvé - " + tag );
+			System.out.println("Resultat : Tag trouvï¿½ - " + tag );
 
 			// Encode the tag list to JSON
 			String json = tag.toJson();
