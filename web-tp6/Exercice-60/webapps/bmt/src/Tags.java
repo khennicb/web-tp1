@@ -14,13 +14,13 @@ import org.json.JSONObject;
 
 /**
  * Provides handling of tag-related requests.
- * 
+ *
  * @author Jan Mikac
  */
 public class Tags {
 	/**
 	 * Handles the request for the tag list.
-	 * 
+	 *
 	 * @param req
 	 *           the request
 	 * @param resp
@@ -77,21 +77,21 @@ public class Tags {
 		// Handle POST
 		if (method == Dispatcher.RequestMethod.POST) {
 			// TODO 1
-			
+
 			String name = new JSONObject(queryParams.get("json").get(0)).getString("name");
-			
+
 			System.out.println(name);
 			try {
 				if(TagDAO.getTagByName(name, user) == null){
 					TagDAO.saveTag(new Tag(name), user);
-					
+
 					resp.setStatus(201);
 					return;
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
+
 			resp.setStatus(304);
 			return;
 		}
@@ -102,7 +102,7 @@ public class Tags {
 
 	/**
 	 * TODO comment
-	 * 
+	 *
 	 * @param req
 	 * @param resp
 	 * @param method
@@ -116,6 +116,28 @@ public class Tags {
 
 		System.out.println("Action: handleTag - " + method + "-" + queryParams);
 		if (method == Dispatcher.RequestMethod.PUT || method == Dispatcher.RequestMethod.DELETE) {
+
+			// Get the tag list
+			Tag tag = null;
+			
+			String name = new JSONObject(queryParams.get("json").get(0)).getString("name");
+			String id   = new JSONObject(queryParams.get("json").get(0)).getString("id");
+
+			System.out.println("tag name = " + name);
+			System.out.println("tag id = " + id);
+			
+			try {
+				if(TagDAO.getTagByName(name, user) == null){
+					TagDAO.modifyTag(new Tag(new Long(id), name), user);
+
+					resp.setStatus(201);
+					return;
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			
 			resp.setStatus(405);
 			return;
 		}
@@ -123,7 +145,7 @@ public class Tags {
 		// Handle GET
 		if (method == Dispatcher.RequestMethod.GET) {
 
-			// Get the tag list
+			// Get the tag 
 			Tag tag = null;
 			String tagName = requestPath[requestPath.length-1];
 			try {
@@ -133,7 +155,7 @@ public class Tags {
 				resp.setStatus(500);
 				return;
 			}
-			System.out.println("Resultat : Tag trouvÃ© - " + tag );
+			System.out.println("Resultat : Tag trouvé - " + tag );
 
 			// Encode the tag list to JSON
 			String json = tag.toJson();
@@ -145,11 +167,6 @@ public class Tags {
 			return;
 		}
 
-		// Handle POST
-		if (method == Dispatcher.RequestMethod.POST) {
-			// TODO 1
-		}
-
 		// Other
 		resp.setStatus(405);
 
@@ -157,7 +174,7 @@ public class Tags {
 
 	/**
 	 * TODO comment
-	 * 
+	 *
 	 * @param req
 	 * @param resp
 	 * @param method
@@ -168,14 +185,14 @@ public class Tags {
 	public static void handleTagBookmarks(HttpServletRequest req, HttpServletResponse resp,
 			Dispatcher.RequestMethod method, String[] requestPath,
 			Map<String, List<String>> queryParams, User user) throws IOException {
-		
+
 		System.out.println("Action: handleTagBookmarks - " + method + "-" + queryParams);
 		// TODO 2
 	}
 
 	/**
 	 * TODO comment
-	 * 
+	 *
 	 * @param req
 	 * @param resp
 	 * @param method
