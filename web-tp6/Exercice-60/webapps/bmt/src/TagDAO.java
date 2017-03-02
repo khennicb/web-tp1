@@ -112,7 +112,7 @@ public class TagDAO {
 			int result = stmt.executeUpdate();
 
 			// TODO : renvoyer une erreur si l'insertion s'est mal passee ?
-			System.out.println("Update result : " + result);
+			//System.out.println("Update result : " + result);
 			
 		} finally {conn.close();}
 	}

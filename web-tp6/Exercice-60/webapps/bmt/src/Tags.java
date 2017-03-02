@@ -123,9 +123,6 @@ public class Tags {
 			String name = new JSONObject(queryParams.get("json").get(0)).getString("name");
 			String id   = new JSONObject(queryParams.get("json").get(0)).getString("id");
 
-			System.out.println("tag name = " + name);
-			System.out.println("tag id = " + id);
-			
 			try {
 				if(TagDAO.getTagByName(name, user) == null){
 					TagDAO.modifyTag(new Tag(new Long(id), name), user);
