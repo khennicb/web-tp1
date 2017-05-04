@@ -1,0 +1,6 @@
+# Bibliothèques et modules indispensables
+    
+require:
+    - play [1.2.5,)
+    - play -> crud
+    - play -> secure
