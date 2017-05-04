@@ -1,6 +1,8 @@
 
 A - Modification du texte des commentaires (injection JavaScript)
 
+<script>$(".comment:nth-child(3) > .comment-content").text("I am a drooling idiot.");</script>Yes, this seems to be right.
+
 B - Vol de session, vol d'identité (vol de cookie)
 
 C - Injections SQL
