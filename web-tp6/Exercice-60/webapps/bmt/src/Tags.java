@@ -14,13 +14,13 @@ import org.json.JSONObject;
 
 /**
  * Provides handling of tag-related requests.
- * 
+ *
  * @author Jan Mikac
  */
 public class Tags {
 	/**
 	 * Handles the request for the tag list.
-	 * 
+	 *
 	 * @param req
 	 *           the request
 	 * @param resp
@@ -77,21 +77,20 @@ public class Tags {
 		// Handle POST
 		if (method == Dispatcher.RequestMethod.POST) {
 			// TODO 1
-			
+
 			String name = new JSONObject(queryParams.get("json").get(0)).getString("name");
-			
-			System.out.println(name);
+
 			try {
 				if(TagDAO.getTagByName(name, user) == null){
 					TagDAO.saveTag(new Tag(name), user);
-					
+
 					resp.setStatus(201);
 					return;
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
+
 			resp.setStatus(304);
 			return;
 		}
@@ -102,7 +101,7 @@ public class Tags {
 
 	/**
 	 * TODO comment
-	 * 
+	 *
 	 * @param req
 	 * @param resp
 	 * @param method
@@ -115,7 +114,44 @@ public class Tags {
 			Map<String, List<String>> queryParams, User user) throws IOException{
 
 		System.out.println("Action: handleTag - " + method + "-" + queryParams);
-		if (method == Dispatcher.RequestMethod.PUT || method == Dispatcher.RequestMethod.DELETE) {
+
+		
+		if (method == Dispatcher.RequestMethod.PUT ) {
+
+			String name = new JSONObject(queryParams.get("json").get(0)).getString("name");
+			String id   = new JSONObject(queryParams.get("json").get(0)).getString("id");
+
+			try {
+				if(TagDAO.getTagByName(name, user) == null){
+					TagDAO.modifyTag(new Tag(new Long(id), name), user);
+
+					resp.setStatus(204);
+					return;
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			
+			resp.setStatus(405);
+			return;
+		}
+
+		
+		if (method == Dispatcher.RequestMethod.DELETE) {
+			
+			String tagId = requestPath[requestPath.length-1];
+			try {
+				Tag tag = TagDAO.getTagById(new Long(tagId), user) ;
+				if(tag != null){
+					TagDAO.removeTag(new Tag(new Long(tagId), tag.getName()), user);
+					resp.setStatus(204);
+					return;
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 			resp.setStatus(405);
 			return;
 		}
@@ -123,7 +159,7 @@ public class Tags {
 		// Handle GET
 		if (method == Dispatcher.RequestMethod.GET) {
 
-			// Get the tag list
+			// Get the tag 
 			Tag tag = null;
 			String tagName = requestPath[requestPath.length-1];
 			try {
@@ -133,7 +169,7 @@ public class Tags {
 				resp.setStatus(500);
 				return;
 			}
-			System.out.println("Resultat : Tag trouvé - " + tag );
+			System.out.println("Resultat : Tag trouv� - " + tag );
 
 			// Encode the tag list to JSON
 			String json = tag.toJson();
@@ -145,11 +181,6 @@ public class Tags {
 			return;
 		}
 
-		// Handle POST
-		if (method == Dispatcher.RequestMethod.POST) {
-			// TODO 1
-		}
-
 		// Other
 		resp.setStatus(405);
 
@@ -157,7 +188,7 @@ public class Tags {
 
 	/**
 	 * TODO comment
-	 * 
+	 *
 	 * @param req
 	 * @param resp
 	 * @param method
@@ -168,14 +199,45 @@ public class Tags {
 	public static void handleTagBookmarks(HttpServletRequest req, HttpServletResponse resp,
 			Dispatcher.RequestMethod method, String[] requestPath,
 			Map<String, List<String>> queryParams, User user) throws IOException {
-		
+
 		System.out.println("Action: handleTagBookmarks - " + method + "-" + queryParams);
-		// TODO 2
+
+
+		// Handle GET
+		if (method == Dispatcher.RequestMethod.GET) {
+
+			String tagId = requestPath[requestPath.length-1];
+			List<Bookmark> bookmarks = null;
+			try{
+				bookmarks = BookmarkDAO.getBookmarksFromTag(user, TagDAO.getTagById(new Long(tagId), user));
+			} catch (SQLException ex) {
+				resp.setStatus(500);
+				return;
+			}
+			
+			// Encode the tag list to JSON
+			String json = "[";
+			for (int i = 0, n = bookmarks.size(); i < n; i++) {
+				Bookmark book = bookmarks.get(i);
+				json += book.toJson();
+				if (i < n - 1)
+					json += ", ";
+			}
+			json += "]";
+			System.out.println(json);
+			// Send the response
+			resp.setStatus(200);
+			resp.setContentType("application/json");
+			resp.getWriter().print(json);
+			return;
+		}
+	
+	
 	}
 
 	/**
 	 * TODO comment
-	 * 
+	 *
 	 * @param req
 	 * @param resp
 	 * @param method

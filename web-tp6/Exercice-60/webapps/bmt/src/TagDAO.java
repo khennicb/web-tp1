@@ -18,6 +18,8 @@ public class TagDAO {
 	private static final String SQL_READ_TAG = "select id,name from Tag where user_id=? and name=?";
 	private static final String SQL_READ_TAG_BY_ID = "select id,name from Tag where user_id=? and id=?";
 	private static final String SQL_INSERT_TAG = "insert into tag (name, user_id) values (?,?)";
+	private static final String SQL_UPDATE_TAG = "update tag set name=? where id=? and user_id=?";
+	private static final String SQL_DELETE_TAG = "delete from tag where id=? and user_id=?";
 	
 	/**
 	 * Provides the tags of a user.
@@ -58,7 +60,8 @@ public class TagDAO {
 			ResultSet result = stmt.executeQuery();
 			
 			if(result.next()){
-				myTag = new Tag(result.getString(2));
+				String name = result.getString(2);
+				myTag = new Tag(id, name);
 			}
 			
 			return myTag;
@@ -94,7 +97,39 @@ public class TagDAO {
 			
 			boolean result = stmt.execute();
 			
-			// TODO : renvoyer une erreur si l'insertion c'est mal passe ?
+			// TODO : renvoyer une erreur si l'insertion s'est mal passe ?
+			
+		} finally {conn.close();}
+	}
+
+	public static void modifyTag(Tag tag, User user) throws SQLException{
+		Connection conn = DBConnection.getConnection();
+		
+		try {
+			PreparedStatement stmt = conn.prepareStatement(SQL_UPDATE_TAG);
+			stmt.setString(1, tag.getName());
+			stmt.setLong(2, tag.getId());
+			stmt.setLong(3, user.getId());
+			
+			int result = stmt.executeUpdate();
+
+			// TODO : renvoyer une erreur si l'insertion s'est mal passee ?
+			//System.out.println("Update result : " + result);
+			
+		} finally {conn.close();}
+	}
+	
+	public static void removeTag(Tag tag, User user) throws SQLException{
+		Connection conn = DBConnection.getConnection();
+		
+		try {
+			PreparedStatement stmt = conn.prepareStatement(SQL_DELETE_TAG);
+			stmt.setLong(1, tag.getId());
+			stmt.setLong(2, user.getId());
+			
+			boolean result = stmt.execute();
+			
+			// TODO : renvoyer une erreur si l'insertion s'est mal passe ?
 			
 		} finally {conn.close();}
 	}

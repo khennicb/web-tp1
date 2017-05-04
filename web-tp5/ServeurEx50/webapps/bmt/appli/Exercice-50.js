@@ -86,7 +86,7 @@ function listTags() {
 }
 
 /* Adds a new tag */
-function addTag() { 
+function addTag() {
 	var elem = $(this).siblings('input[name=name]');
 	var nomTag = elem.val();
 
@@ -107,21 +107,46 @@ function addTag() {
 function clickTag() {
 	if ($(this).hasClass("selected") == false) {
 		$('#items .item.tag').removeClass("selected");
+		$('#items .item.tag').find('h2').show();
+		$('#items .item.tag').find('h2').nextAll().remove();
 		$(this).addClass("selected");
-		//TODO cacher son nom (<h2>)
+
+		var h2_tag = $(this).find('h2');
+		h2_tag.hide();
+
+		h2_tag.after('<input type="text" name="name_mod" value="' + h2_tag.text() + '"><input type="button" name="modify" value="Modify name"> <input type="button" name="remove" value="Remove tag">');
+		$('input[type="button"][name="modify"]', $(this)).on('click', modifyTag);
+		$('input[type="button"][name="remove"]', $(this)).on('click', removeTag);
+
 
 	}
 }
 
 /* Performs the modification of a tag */
 function modifyTag() {
-	//TODO 8
+	var idTag = $(this).parents('.tag').attr('num');
+	var url = wsBase + 'tags/' + idTag;
+	var newValue = $(this).siblings('input[name="name_mod"]').attr('value');
+
+	var obj = {"id" : idTag, "name": newValue};
+
+	jQuery.post(url, "json=" + JSON.stringify(obj) + "&x-http-method=put")
+		.done(function(){
+			listTags();
+		});
 }
 
 /* Removes a tag */
 function removeTag() {
-	//TODO 9
+	var idTag = $(this).parents('.tag').attr('num');
+	var url = wsBase + "tags/" + idTag;
+
+	jQuery.post(url, "x-http-method=delete")
+		.done(function(){
+			listTags();
+		});
 }
+
 /* On document loading */
 $(function() {
 	// Put the name of the current user into <h1>
