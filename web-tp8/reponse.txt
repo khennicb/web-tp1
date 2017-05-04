@@ -9,5 +9,12 @@ B - Vol de session, vol d'identité (vol de cookie)
 
 C - Injections SQL
 -------------------
-1. Je rentre dans le champ password la valeur : ' or 1=1 --
+1. Je rentre dans le champ password la valeur : 
+' or 1=1 --
 Cependant, cette méthode ne me permet pas d'être certain d'êtreloggué en tant que Bob. Néanmois, cela fonctionne dans ce cas précis. Ce nest donc pas la peine que je cherche une autre méhode.
+
+2. Il suffit de remplir le champ username avec : 
+' ; drop table user; --
+
+3. De la même façon, je remplis le champ username avec : 
+' ; insert into user (password, email) values ('blop','foreyn@grenoble-inp.org'); --
