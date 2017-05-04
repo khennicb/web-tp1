@@ -1,8 +1,13 @@
 
 A - Modification du texte des commentaires (injection JavaScript)
+----------------------------------------------------------------
 
 <script>$(".comment:nth-child(3) > .comment-content").text("I am a drooling idiot.");</script>Yes, this seems to be right.
 
 B - Vol de session, vol d'identité (vol de cookie)
+--------------------------------------------------
 
 C - Injections SQL
+-------------------
+1. Je rentre dans le champ password la valeur : ' or 1=1 --
+Cependant, cette méthode ne me permet pas d'être certain d'êtreloggué en tant que Bob. Néanmois, cela fonctionne dans ce cas précis. Ce nest donc pas la peine que je cherche une autre méhode.
