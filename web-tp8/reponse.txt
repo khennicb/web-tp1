@@ -1,0 +1,6 @@
+
+A - Modification du texte des commentaires (injection JavaScript)
+
+B - Vol de session, vol d'identité (vol de cookie)
+
+C - Injections SQL
