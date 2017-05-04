@@ -14,7 +14,7 @@ C - Injections SQL
 Cependant, cette méthode ne me permet pas d'être certain d'êtreloggué en tant que Bob. Néanmois, cela fonctionne dans ce cas précis. Ce nest donc pas la peine que je cherche une autre méhode.
 
 2. Il suffit de remplir le champ username avec : 
-' ; drop table user; --
+'; drop table user; --
 
 3. De la même façon, je remplis le champ username avec : 
-' ; insert into user (password, email) values ('blop','foreyn@grenoble-inp.org'); --
+'; insert into user (password, email) values ('blop','foreyn@grenoble-inp.org'); --
